@@ -24,10 +24,27 @@ public class Cliente {
         private String dataNascimento;
         private String email;
         private String Telefone;
+        
+        public Cliente(){
+            
+        }
 
-    public Cliente(String cpf) {
+    public Cliente(String nome, String cpf, String endereço, String numero, String bairro, String cidade, String estado, String sexo, String estadoCivil, String dataNascimento, String email, String Telefone) {
+        this.nome = nome;
         this.cpf = cpf;
+        this.endereço = endereço;
+        this.numero = numero;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.sexo = sexo;
+        this.estadoCivil = estadoCivil;
+        this.dataNascimento = dataNascimento;
+        this.email = email;
+        this.Telefone = Telefone;
     }
+
+    
 
     public String getNome() {
         return nome;
@@ -126,7 +143,27 @@ public class Cliente {
     }
         
     
+    // metódos
     
+    public void adicionar() {
+       this.cpf = cpf;
+    }
   
+    
+    public void excluir() {
+       this.nome = nome;
+    }
+    
+    public void alterar() {
+        this.Telefone = Telefone;
+
+    }
+    
+    public void consultar() {
+        this.email = email; 
+
+    }
+  
+   
 
 }   
