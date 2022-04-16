@@ -39,19 +39,23 @@ public class RelatorioAnalitico extends javax.swing.JFrame {
         tblDetalhes = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(java.awt.Color.lightGray);
 
-        lblRelatorioAnalitico.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(187, 187, 187));
+
+        lblRelatorioAnalitico.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblRelatorioAnalitico.setText("Relatório Analítico");
 
-        lblCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblCliente.setText("Cliente:");
 
-        lblDataVenda.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblDataVenda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblDataVenda.setText("Data da venda:");
 
-        lblValorTotal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblValorTotal.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblValorTotal.setText("Valor total:");
 
+        tblDetalhes.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         tblDetalhes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -69,7 +73,7 @@ public class RelatorioAnalitico extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
+                        .addGap(51, 51, 51)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -84,16 +88,16 @@ public class RelatorioAnalitico extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(lblValorTotal)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtValorTotal)))))
+                                    .addComponent(txtValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(250, 250, 250)
+                        .addGap(292, 292, 292)
                         .addComponent(lblRelatorioAnalitico)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
                 .addComponent(lblRelatorioAnalitico)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -108,24 +112,19 @@ public class RelatorioAnalitico extends javax.swing.JFrame {
                     .addComponent(lblValorTotal)
                     .addComponent(txtValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
