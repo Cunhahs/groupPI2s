@@ -13,6 +13,7 @@ import java.util.Date;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTextField;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -119,6 +120,14 @@ public class ClienteView extends javax.swing.JFrame {
         lblEndereço.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         txtEndereço.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtEndereço.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtEndereçoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEndereçoKeyTyped(evt);
+            }
+        });
 
         lblNumero.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblNumero.setText("Número");
@@ -128,6 +137,11 @@ public class ClienteView extends javax.swing.JFrame {
         txtNumero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNumeroActionPerformed(evt);
+            }
+        });
+        txtNumero.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumeroKeyTyped(evt);
             }
         });
 
@@ -156,6 +170,11 @@ public class ClienteView extends javax.swing.JFrame {
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
+            }
+        });
+        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEmailKeyTyped(evt);
             }
         });
 
@@ -330,16 +349,16 @@ public class ClienteView extends javax.swing.JFrame {
                                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 707, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtEndereço, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(lblCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(txtCidade)))
-                                .addGap(32, 32, 32)
+                                        .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtEndereço, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(10, 10, 10)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(lblEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -554,6 +573,22 @@ public class ClienteView extends javax.swing.JFrame {
         } finally {
             this.txtCPF.setText("");
         }
+        
+        try {
+
+            if (txtCPF.getText().replace(".", "").replace("-", "").trim().equals("")) {
+                throw new IllegalArgumentException();
+            } else {
+                txtCPF.setBackground(Color.WHITE);
+            }
+
+        } catch (IllegalArgumentException e) {
+            this.mensagensErro.add("Digite um valor para o campo " + txtCPF.getName());
+            txtCPF.setBackground(Color.red);
+        } catch (Exception e) {
+            this.mensagensErro.add("Ocorreu um erro inesperado no campo: " + txtCPF.getName());
+            txtCPF.setText("");
+        }
 
     }//GEN-LAST:event_txtCPFActionPerformed
 
@@ -562,6 +597,14 @@ public class ClienteView extends javax.swing.JFrame {
             evt.consume();
             JOptionPane.showMessageDialog(this, "Máximo de 11 caracteres antingidos para o CPF!");
         }
+        
+        char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Somente números.");
+        }
+        
+        
     }//GEN-LAST:event_txtCPFKeyTyped
 
     private void txtBairroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBairroKeyReleased
@@ -703,6 +746,39 @@ public class ClienteView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cboEstadoCivilActionPerformed
 
+    private void txtEmailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyTyped
+        if (txtEmail.getText().length() > 40) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Máximo de 40 caracteres antingidos para o campo e-mail!");
+        }
+    }//GEN-LAST:event_txtEmailKeyTyped
+
+    private void txtEndereçoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEndereçoKeyReleased
+        String textoAnterior = txtEndereço.getText();
+        txtEndereço.setText(textoAnterior.toUpperCase());
+    }//GEN-LAST:event_txtEndereçoKeyReleased
+
+    private void txtEndereçoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEndereçoKeyTyped
+        if (txtEndereço.getText().length() >40) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Máximo de 40 caracteres antingidos para o campo endereço!");
+        }
+    }//GEN-LAST:event_txtEndereçoKeyTyped
+
+    private void txtNumeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroKeyTyped
+        
+        char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Somente números.");
+        }
+    }//GEN-LAST:event_txtNumeroKeyTyped
+
+    
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */
