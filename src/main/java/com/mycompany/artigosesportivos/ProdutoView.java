@@ -4,7 +4,9 @@
  */
 package com.mycompany.artigosesportivos;
 
+import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -41,8 +43,6 @@ public class ProdutoView extends javax.swing.JFrame {
         lblMarca = new javax.swing.JLabel();
         txtMarca = new javax.swing.JTextField();
         lblCategoria = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        lstCategoria = new javax.swing.JList<>();
         lblQtdeEstoque = new javax.swing.JLabel();
         txtQtdeEstoque = new javax.swing.JTextField();
         btnAdiciionar = new javax.swing.JButton();
@@ -53,6 +53,7 @@ public class ProdutoView extends javax.swing.JFrame {
         txtValorUnitario = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblProduto = new javax.swing.JTable();
+        cboCategoria = new javax.swing.JComboBox<>();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -80,6 +81,11 @@ public class ProdutoView extends javax.swing.JFrame {
         lblCodProduto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         txtCodProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtCodProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodProdutoActionPerformed(evt);
+            }
+        });
         txtCodProduto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtCodProdutoKeyTyped(evt);
@@ -91,6 +97,11 @@ public class ProdutoView extends javax.swing.JFrame {
         lblDescricaoProduto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         txtProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtProdutoActionPerformed(evt);
+            }
+        });
         txtProduto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtProdutoKeyReleased(evt);
@@ -105,6 +116,11 @@ public class ProdutoView extends javax.swing.JFrame {
         lblMarca.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         txtMarca.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtMarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMarcaActionPerformed(evt);
+            }
+        });
         txtMarca.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtMarcaKeyReleased(evt);
@@ -118,19 +134,16 @@ public class ProdutoView extends javax.swing.JFrame {
         lblCategoria.setText("Categoria");
         lblCategoria.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lstCategoria.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lstCategoria.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Academia e Fitness", "Boxe e Artes Marciais", "Camping, Trilha e Neve", "Ciclismo", "Corrida e Caminhada", "Futebol, Volei e Basquete", "Esportes Aquaticos" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(lstCategoria);
-
         lblQtdeEstoque.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblQtdeEstoque.setText("Qtde em Estoque");
         lblQtdeEstoque.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         txtQtdeEstoque.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtQtdeEstoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtQtdeEstoqueActionPerformed(evt);
+            }
+        });
         txtQtdeEstoque.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtQtdeEstoqueKeyTyped(evt);
@@ -187,6 +200,11 @@ public class ProdutoView extends javax.swing.JFrame {
         lblValorUnitario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         txtValorUnitario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtValorUnitario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtValorUnitarioActionPerformed(evt);
+            }
+        });
         txtValorUnitario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtValorUnitarioKeyTyped(evt);
@@ -203,6 +221,9 @@ public class ProdutoView extends javax.swing.JFrame {
             }
         ));
         jScrollPane3.setViewportView(tblProduto);
+
+        cboCategoria.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cboCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Academia e Fitness", "Boxe e Artes Marciais", "Camping, Trilha e Neve", "Ciclismo", "Corrida e Caminhada", "Futebol, Volei e Basquete", "Esportes Aquaticos" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -237,14 +258,13 @@ public class ProdutoView extends javax.swing.JFrame {
                     .addComponent(lblQtdeEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblValorUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtValorUnitario, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtCodProduto, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtProduto, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtMarca, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtQtdeEstoque, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(txtValorUnitario, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCodProduto, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtProduto, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtMarca, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtQtdeEstoque)
+                    .addComponent(cboCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -257,8 +277,10 @@ public class ProdutoView extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblMarca)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblCategoria)
-                        .addGap(13, 13, 13)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblCategoria)
+                            .addComponent(cboCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12)
                         .addComponent(lblQtdeEstoque)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -274,12 +296,9 @@ public class ProdutoView extends javax.swing.JFrame {
                             .addComponent(lblDescricaoProduto))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(44, 44, 44)
                         .addComponent(txtQtdeEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(41, 41, 41)))
-                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -306,22 +325,36 @@ public class ProdutoView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 286, Short.MAX_VALUE))
+                .addGap(0, 304, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public ArrayList<String> mensagensErro = new ArrayList<>();
+    
+    
+    
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        // TODO add your handling code here:
+        int linhaSelecionada = tblProduto.getSelectedRow();
+
+        DefaultTableModel modelo = (DefaultTableModel) tblProduto.getModel();
+
+        if (linhaSelecionada >= 0) {
+            modelo.removeRow(linhaSelecionada);
+        } else {
+            JOptionPane.showMessageDialog(this,
+                    "Selecione um produto!");
+        }
+
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void txtCodProdutoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodProdutoKeyTyped
-       char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
             evt.consume();
             JOptionPane.showMessageDialog(this, "Somente números.");
@@ -355,7 +388,7 @@ public class ProdutoView extends javax.swing.JFrame {
     }//GEN-LAST:event_txtMarcaKeyReleased
 
     private void txtProdutoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProdutoKeyTyped
-         if (txtProduto.getText().length() > 20) {
+        if (txtProduto.getText().length() > 20) {
             evt.consume();
             JOptionPane.showMessageDialog(this, "Máximo de 20 caracteres antingidos para o campo Produto!");
         }
@@ -371,32 +404,114 @@ public class ProdutoView extends javax.swing.JFrame {
     private void btnAdiciionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdiciionarActionPerformed
         DefaultTableModel modelo = (DefaultTableModel) tblProduto.getModel();
 
-                int CodProduto = Integer.parseInt(txtCodProduto.getText());
-                String Produto = txtProduto.getText();
-                String Marca = txtMarca.getText();
-                String categoria = lstCategoria.getSelected()
-                int quantProd = Integer.parseInt(txtQtdeEstoque.getText());
-                double ValorUnitario = Double.parseDouble(txtValorUnitario.getText());
-                String Marca = txtMarca.getText();
+        int CodProduto = Integer.parseInt(txtCodProduto.getText());
+        String Produto = txtProduto.getText();
+        String Marca = txtMarca.getText();
+        String Categoria = cboCategoria.getSelectedItem().toString();
+        int quantProd = Integer.parseInt(txtQtdeEstoque.getText());
+        double ValorUnitario = Double.parseDouble(txtValorUnitario.getText());
 
-        modelo.addRow(new String[]{CodProduto,
-             NomeProduto,
-             Endereco,
-             Numero,
-             bairro,
-             cidade,
-             estado,
-             sexo,
-             estadoCivil,
-             dataNascimento,
-             email,
-             telefone});
+        modelo.addRow(new String[]{Produto, Marca, Categoria});
+        tblProduto.getColumnModel().getColumn(0).setPreferredWidth(10);// cod produto
+        tblProduto.getColumnModel().getColumn(1).setPreferredWidth(50);//produto
+        tblProduto.getColumnModel().getColumn(2).setPreferredWidth(50); // marca
+        tblProduto.getColumnModel().getColumn(3).setPreferredWidth(50); // categoria
+        tblProduto.getColumnModel().getColumn(4).setPreferredWidth(20); //qtde estoque
+        tblProduto.getColumnModel().getColumn(5).setPreferredWidth(50); // valor unitario
 
+        String consultaCliente = "";
+        
+        
+        if (cboCategoria.getSelectedIndex() == 0) {
+            this.mensagensErro.add("Selecione uma opção no campo " + cboCategoria.getName());
+            cboCategoria.setBackground(Color.RED);
+        } else {
+            cboCategoria.setBackground(Color.WHITE);
+        }
+
+        if (Categoria.equals("Academia e Fitness(")) {
+            cboCategoria.setSelectedIndex(1);
+        } else if (Categoria.equals("Boxe e Arte Marciais")) {
+            cboCategoria.setSelectedIndex(2);
+        } else if (Categoria.equals("Camping, Trilha e Neve")) {
+            cboCategoria.setSelectedIndex(3);
+        } else if (Categoria.equals("Ciclismo")) {
+            cboCategoria.setSelectedIndex(4);
+        } else if (Categoria.equals("Corrida e Caminhada")) {
+            cboCategoria.setSelectedIndex(5);
+        } else if (Categoria.equals("Futebol, Volei e Basquete")) {
+            cboCategoria.setSelectedIndex(6);
+        } else if (Categoria.equals("Esportes Aquáticos")){
+            cboCategoria.setSelectedIndex(7);
+        }
+        
+       
+        
+        
+        
     }//GEN-LAST:event_btnAdiciionarActionPerformed
 
     private void btnConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnConsultaActionPerformed
+
+    private void txtCodProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodProdutoActionPerformed
+        if (txtCodProduto.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(this, "O campo Cód. Produto é obrigatório!");
+        }
+
+        try {
+            int retorno = Integer.parseInt(txtCodProduto.getText());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+
+        } finally {
+            this.txtCodProduto.setText("");
+        }
+        
+    }//GEN-LAST:event_txtCodProdutoActionPerformed
+
+    private void txtProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProdutoActionPerformed
+         if (txtProduto.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(this, "O campo produto é obrigatório!");
+        }
+    }//GEN-LAST:event_txtProdutoActionPerformed
+
+    private void txtMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMarcaActionPerformed
+        if (txtMarca.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(this, "O campo marca é obrigatório!");
+        }
+    }//GEN-LAST:event_txtMarcaActionPerformed
+
+    private void txtQtdeEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQtdeEstoqueActionPerformed
+       if (txtQtdeEstoque.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(this, "O campo Qtde Estoque é obrigatório!");
+        }
+
+        try {
+            int retorno = Integer.parseInt(txtQtdeEstoque.getText());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+
+        } finally {
+            this.txtQtdeEstoque.setText("");
+        }
+    }//GEN-LAST:event_txtQtdeEstoqueActionPerformed
+
+    private void txtValorUnitarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorUnitarioActionPerformed
+        if (txtValorUnitario.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(this, "O campo Valor Unitário é obrigatório!");
+        }
+
+        try {
+            Double retorno = Double.parseDouble(txtValorUnitario.getText());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+
+        } finally {
+            this.txtValorUnitario.setText("");
+        }
+    }//GEN-LAST:event_txtValorUnitarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -439,9 +554,9 @@ public class ProdutoView extends javax.swing.JFrame {
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnConsulta;
     private javax.swing.JButton btnExcluir;
+    private javax.swing.JComboBox<String> cboCategoria;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
@@ -451,7 +566,6 @@ public class ProdutoView extends javax.swing.JFrame {
     private javax.swing.JLabel lblMarca;
     private javax.swing.JLabel lblQtdeEstoque;
     private javax.swing.JLabel lblValorUnitario;
-    private javax.swing.JList<String> lstCategoria;
     private javax.swing.JTable tblProduto;
     private javax.swing.JTextField txtCodProduto;
     private javax.swing.JTextField txtMarca;
