@@ -301,10 +301,12 @@ public class ClienteView extends javax.swing.JFrame {
         jScrollPane4.setViewportView(tblCliente);
 
         btnConsultarNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnConsultarNome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Look-icon.png"))); // NOI18N
         btnConsultarNome.setText("Consultar por Nome");
         btnConsultarNome.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btnConsultarCPF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnConsultarCPF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Look-icon.png"))); // NOI18N
         btnConsultarCPF.setText("Consultar por CPF");
         btnConsultarCPF.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -386,27 +388,28 @@ public class ClienteView extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(73, 73, 73)
                                 .addComponent(btnAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGap(48, 48, 48)
                                 .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGap(33, 33, 33)
                                 .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGap(44, 44, 44)
                                 .addComponent(btnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(146, 146, 146)
-                        .addComponent(btnConsultarNome, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(186, 186, 186)
-                        .addComponent(btnConsultarCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(320, 320, 320)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(152, 152, 152)
+                        .addComponent(btnConsultarNome, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(198, 198, 198)
+                        .addComponent(btnConsultarCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 888, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(320, 320, 320))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -414,9 +417,9 @@ public class ClienteView extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(jLabel10)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnConsultarNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnConsultarCPF, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnConsultarCPF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnConsultarNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNome)
@@ -459,11 +462,20 @@ public class ClienteView extends javax.swing.JFrame {
                     .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAdicionar)
-                    .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(btnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(31, 31, 31))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAdicionar)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(30, 30, 30)))
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33))
         );
@@ -573,7 +585,7 @@ public class ClienteView extends javax.swing.JFrame {
         } finally {
             this.txtCPF.setText("");
         }
-        
+
         try {
 
             if (txtCPF.getText().replace(".", "").replace("-", "").trim().equals("")) {
@@ -597,14 +609,14 @@ public class ClienteView extends javax.swing.JFrame {
             evt.consume();
             JOptionPane.showMessageDialog(this, "Máximo de 11 caracteres antingidos para o CPF!");
         }
-        
+
         char c = evt.getKeyChar();
         if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
             evt.consume();
             JOptionPane.showMessageDialog(this, "Somente números.");
         }
-        
-        
+
+
     }//GEN-LAST:event_txtCPFKeyTyped
 
     private void txtBairroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBairroKeyReleased
@@ -626,7 +638,7 @@ public class ClienteView extends javax.swing.JFrame {
             modelo.removeRow(linhaSelecionada);
         } else {
             JOptionPane.showMessageDialog(this,
-                     "Selecione uma linha!");
+                    "Selecione uma linha!");
         }
 
 
@@ -649,20 +661,18 @@ public class ClienteView extends javax.swing.JFrame {
         String telefone = txtTelefone.getText();
 
         modelo.addRow(new String[]{nome,
-             CPF,
-             Endereco,
-             Numero,
-             bairro,
-             cidade,
-             estado,
-             sexo,
-             estadoCivil,
-             dataNascimento,
-             email,
-             telefone});
-        
-       
-       
+            CPF,
+            Endereco,
+            Numero,
+            bairro,
+            cidade,
+            estado,
+            sexo,
+            estadoCivil,
+            dataNascimento,
+            email,
+            telefone});
+
         tblCliente.getColumnModel().getColumn(1).setPreferredWidth(50); //nome
         tblCliente.getColumnModel().getColumn(2).setPreferredWidth(50); //CPF
         tblCliente.getColumnModel().getColumn(3).setPreferredWidth(50); //endereço
@@ -675,9 +685,6 @@ public class ClienteView extends javax.swing.JFrame {
         tblCliente.getColumnModel().getColumn(10).setPreferredWidth(50); //Telefone
         tblCliente.getColumnModel().getColumn(11).setPreferredWidth(50); //data nascimento
         tblCliente.getColumnModel().getColumn(12).setPreferredWidth(50); //e-mail        
-        
-       
-
 
         String consultaCliente = "";
 
@@ -687,7 +694,7 @@ public class ClienteView extends javax.swing.JFrame {
                             .getActionCommand();
         } else {
             JOptionPane.showMessageDialog(this,
-                     "Consulta Cliente!");
+                    "Consulta Cliente!");
             return;
         }
 
@@ -705,7 +712,7 @@ public class ClienteView extends javax.swing.JFrame {
         } else if (sexo.equals("Outro")) {
             cboGenero.setSelectedIndex(3);
         }
-        
+
         if (cboEstadoCivil.getSelectedIndex() == 0) {
             this.mensagensErro.add("Selecione uma opção no campo " + cboEstadoCivil.getName());
             cboEstadoCivil.setBackground(Color.RED);
@@ -728,11 +735,7 @@ public class ClienteView extends javax.swing.JFrame {
         } else if (estadoCivil.equals("Outro")) {
             cboEstadoCivil.setSelectedIndex(7);
         }
-        
-        
-        
-        
-        
+
         if (cboEstado.getSelectedIndex() == 0) {
             this.mensagensErro.add("Selecione uma opção no campo " + cboEstado.getName());
             cboEstado.setBackground(Color.RED);
@@ -777,14 +780,14 @@ public class ClienteView extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEndereçoKeyReleased
 
     private void txtEndereçoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEndereçoKeyTyped
-        if (txtEndereço.getText().length() >40) {
+        if (txtEndereço.getText().length() > 40) {
             evt.consume();
             JOptionPane.showMessageDialog(this, "Máximo de 40 caracteres antingidos para o campo endereço!");
         }
     }//GEN-LAST:event_txtEndereçoKeyTyped
 
     private void txtNumeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroKeyTyped
-        
+
         char c = evt.getKeyChar();
         if (((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
             evt.consume();
@@ -792,11 +795,6 @@ public class ClienteView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtNumeroKeyTyped
 
-    
-    
-    
-    
-    
     /**
      * @param args the command line arguments
      */
