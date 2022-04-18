@@ -1,5 +1,8 @@
 package com.mycompany.artigosesportivos;
 
+import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -56,6 +59,50 @@ public class Estoque extends javax.swing.JFrame {
         btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmarActionPerformed(evt);
+            }
+        });
+
+        txtItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtItemActionPerformed(evt);
+            }
+        });
+        txtItem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtItemKeyTyped(evt);
+            }
+        });
+
+        txtQuantidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtQuantidadeActionPerformed(evt);
+            }
+        });
+        txtQuantidade.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtQuantidadeKeyTyped(evt);
+            }
+        });
+
+        txtValorTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtValorTotalActionPerformed(evt);
+            }
+        });
+        txtValorTotal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtValorTotalKeyTyped(evt);
+            }
+        });
+
+        txtValorProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtValorProdutoActionPerformed(evt);
+            }
+        });
+        txtValorProduto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtValorProdutoKeyTyped(evt);
             }
         });
 
@@ -138,8 +185,57 @@ public class Estoque extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnConfirmarActionPerformed
+
+    private void txtItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtItemActionPerformed
+
+    private void txtItemKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtItemKeyTyped
+//            char item = evt.getKeyChar();
+//        if (((item < 'a') || (item > 'z')) && (item != KeyEvent.VK_BACK_SPACE)) {
+//            evt.consume();
+//            JOptionPane.showMessageDialog(this, "Para o item, digite apenas letras.");
+//        } 
+    }//GEN-LAST:event_txtItemKeyTyped
+
+    private void txtQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantidadeActionPerformed
+  
+    }//GEN-LAST:event_txtQuantidadeActionPerformed
+
+    private void txtQuantidadeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtQuantidadeKeyTyped
+        char qtd = evt.getKeyChar();
+        if (((qtd < '0') || (qtd > '9')) && (qtd != KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Para a quantidade, digite apenas números.");
+        }   
+    }//GEN-LAST:event_txtQuantidadeKeyTyped
+
+    private void txtValorProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorProdutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtValorProdutoActionPerformed
+
+    private void txtValorProdutoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorProdutoKeyTyped
+            char valor = evt.getKeyChar();
+        if (((valor < '0') || (valor > '9')) && (valor != KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Para o valor, digite apenas números.");
+        }   
+    }//GEN-LAST:event_txtValorProdutoKeyTyped
+
+    private void txtValorTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorTotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtValorTotalActionPerformed
+
+    private void txtValorTotalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorTotalKeyTyped
+            char valort = evt.getKeyChar();
+        if (((valort < '0') || (valort > '9')) && (valort != KeyEvent.VK_BACK_SPACE)) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Para o valor total, digite apenas números.");
+        }   
+    
+    }//GEN-LAST:event_txtValorTotalKeyTyped
 
     /**
      * @param args the command line arguments
