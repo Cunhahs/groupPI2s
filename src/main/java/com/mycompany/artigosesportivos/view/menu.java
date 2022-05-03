@@ -32,24 +32,15 @@ public class menu extends javax.swing.JFrame {
         lblLogo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu8 = new javax.swing.JMenu();
-        jMenuItem15 = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
+        jmiAbrirPDV = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
-        jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem12 = new javax.swing.JMenuItem();
-        jMenuItem13 = new javax.swing.JMenuItem();
-        jMenuItem14 = new javax.swing.JMenuItem();
+        jmiAbrirClientes = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        jmiAbrirProdutos = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
+        jmiAbrirRelatorios = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
+        jmiAbrirSobre = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -62,76 +53,49 @@ public class menu extends javax.swing.JFrame {
 
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/output-onlinepngtools.png"))); // NOI18N
 
-        jMenu8.setText(" Arquivo");
+        jMenu8.setText("Ponto de Venda");
 
-        jMenuItem15.setText(" Sair");
-        jMenuItem15.setToolTipText("");
-        jMenu8.add(jMenuItem15);
+        jmiAbrirPDV.setText("Abrir");
+        jmiAbrirPDV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiAbrirPDVActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jmiAbrirPDV);
 
         jMenuBar1.add(jMenu8);
 
-        jMenu1.setText("Usuários");
-
-        jMenuItem4.setText("Cadastrar ");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem4);
-
-        jMenuItem9.setText("Alterar");
-        jMenu1.add(jMenuItem9);
-
-        jMenuItem6.setText("Excluir");
-        jMenu1.add(jMenuItem6);
-
-        jMenuItem10.setText("Pesquisar");
-        jMenu1.add(jMenuItem10);
-
-        jMenuBar1.add(jMenu1);
-
         jMenu7.setText("Clientes");
 
-        jMenuItem11.setText("Cadastrar");
-        jMenu7.add(jMenuItem11);
-
-        jMenuItem12.setText("Alterar");
-        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+        jmiAbrirClientes.setText("Abrir");
+        jmiAbrirClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem12ActionPerformed(evt);
+                jmiAbrirClientesActionPerformed(evt);
             }
         });
-        jMenu7.add(jMenuItem12);
-
-        jMenuItem13.setText("Excluir");
-        jMenu7.add(jMenuItem13);
-
-        jMenuItem14.setText("Pesquisar");
-        jMenu7.add(jMenuItem14);
+        jMenu7.add(jmiAbrirClientes);
 
         jMenuBar1.add(jMenu7);
 
         jMenu2.setText("Produtos");
 
-        jMenuItem8.setText("Cadastrar");
-        jMenu2.add(jMenuItem8);
-
-        jMenuItem7.setText("Pesquisa ");
-        jMenu2.add(jMenuItem7);
+        jmiAbrirProdutos.setText("Abrir");
+        jMenu2.add(jmiAbrirProdutos);
 
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Relatórios");
+
+        jmiAbrirRelatorios.setText("Abrir");
+        jMenu3.add(jmiAbrirRelatorios);
+
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setText("PDV");
-        jMenuBar1.add(jMenu4);
-
-        jMenu5.setText("Estoque");
-        jMenuBar1.add(jMenu5);
-
         jMenu6.setText("Sobre");
+
+        jmiAbrirSobre.setText("Abrir");
+        jMenu6.add(jmiAbrirSobre);
+
         jMenuBar1.add(jMenu6);
 
         setJMenuBar(jMenuBar1);
@@ -141,28 +105,28 @@ public class menu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(88, 88, 88)
+                .addGap(78, 78, 78)
                 .addComponent(lblLogo)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(44, 44, 44)
                 .addComponent(lblLogo)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+    private void jmiAbrirPDVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAbrirPDVActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem12ActionPerformed
+    }//GEN-LAST:event_jmiAbrirPDVActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void jmiAbrirClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAbrirClientesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_jmiAbrirClientesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -200,29 +164,20 @@ public class menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem13;
-    private javax.swing.JMenuItem jMenuItem14;
-    private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenuItem jmiAbrirClientes;
+    private javax.swing.JMenuItem jmiAbrirPDV;
+    private javax.swing.JMenuItem jmiAbrirProdutos;
+    private javax.swing.JMenuItem jmiAbrirRelatorios;
+    private javax.swing.JMenuItem jmiAbrirSobre;
     private javax.swing.JLabel lblLogo;
     // End of variables declaration//GEN-END:variables
 }
