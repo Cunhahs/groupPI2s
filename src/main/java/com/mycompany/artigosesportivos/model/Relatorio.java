@@ -5,16 +5,24 @@ package com.mycompany.artigosesportivos.model;
  * @author nicolly.crsouza
  */
 public class Relatorio {
+    private static int idVenda;
     private static String dataVenda;
     private static String cliente;
-    private static String valorTotal;
+    private static double valorTotal;
     private static String[] produtos;
     private static int[] qtdProdutos;
 
     public Relatorio() {
     }
-    
 
+    public static int getIdVenda() {
+        return idVenda;
+    }
+
+    public static void setIdVenda(int idVenda) {
+        Relatorio.idVenda = idVenda;
+    }
+    
     public static String getDataVenda() {
         return dataVenda;
     }
@@ -31,11 +39,11 @@ public class Relatorio {
         Relatorio.cliente = cliente;
     }
 
-    public static String getValorTotal() {
+    public static Double getValorTotal() {
         return valorTotal;
     }
 
-    public static void setValorTotal(String valorTotal) {
+    public static void setValorTotal(Double valorTotal) {
         Relatorio.valorTotal = valorTotal;
     }
 

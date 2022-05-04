@@ -37,15 +37,15 @@ public class Sobre extends javax.swing.JFrame {
 
         jLabel1.setText("Desenvolvido por:");
 
-        jLabel2.setText("Henrique");
+        jLabel2.setText("Henrique Cunha de Souza ");
 
-        jLabel3.setText("Nicolly");
+        jLabel3.setText("Nicolly Candida Rodrigues de Souza ");
 
-        jLabel4.setText("Viviane");
+        jLabel4.setText("Viviane de Freitas Cipollari ");
 
-        jLabel5.setText("Shefany");
+        jLabel5.setText("Sthefany Böttcher");
 
-        jLabel6.setText("William");
+        jLabel6.setText("William Guilherme Kuntzler Schmitt");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -60,7 +60,7 @@ public class Sobre extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5))
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -77,7 +77,7 @@ public class Sobre extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
