@@ -57,7 +57,7 @@ public class PontodeVenda extends javax.swing.JFrame {
         txtValor = new javax.swing.JTextField();
         txtValorTotal = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabelCodigoDoProduto.setText("Código do Produto: ");
 

@@ -8,12 +8,12 @@ package com.mycompany.artigosesportivos.view;
  *
  * @author User
  */
-public class menu extends javax.swing.JFrame {
+public class Menu extends javax.swing.JFrame {
 
     /**
      * Creates new form menu
      */
-    public menu() {
+    public Menu() {
         initComponents();
     }
 
@@ -80,6 +80,11 @@ public class menu extends javax.swing.JFrame {
         jMenu2.setText("Produtos");
 
         jmiAbrirProdutos.setText("Abrir");
+        jmiAbrirProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiAbrirProdutosActionPerformed(evt);
+            }
+        });
         jMenu2.add(jmiAbrirProdutos);
 
         jMenuBar1.add(jMenu2);
@@ -87,6 +92,11 @@ public class menu extends javax.swing.JFrame {
         jMenu3.setText("Relatórios");
 
         jmiAbrirRelatorios.setText("Abrir");
+        jmiAbrirRelatorios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiAbrirRelatoriosActionPerformed(evt);
+            }
+        });
         jMenu3.add(jmiAbrirRelatorios);
 
         jMenuBar1.add(jMenu3);
@@ -94,6 +104,11 @@ public class menu extends javax.swing.JFrame {
         jMenu6.setText("Sobre");
 
         jmiAbrirSobre.setText("Abrir");
+        jmiAbrirSobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiAbrirSobreActionPerformed(evt);
+            }
+        });
         jMenu6.add(jmiAbrirSobre);
 
         jMenuBar1.add(jMenu6);
@@ -107,7 +122,7 @@ public class menu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(78, 78, 78)
                 .addComponent(lblLogo)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,12 +136,29 @@ public class menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jmiAbrirPDVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAbrirPDVActionPerformed
-        // TODO add your handling code here:
+        PontodeVenda pdv = new PontodeVenda();
+        pdv.setVisible(true);
     }//GEN-LAST:event_jmiAbrirPDVActionPerformed
 
     private void jmiAbrirClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAbrirClientesActionPerformed
-        // TODO add your handling code here:
+        ClienteView cliente = new ClienteView();
+        cliente.setVisible(true);
     }//GEN-LAST:event_jmiAbrirClientesActionPerformed
+
+    private void jmiAbrirProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAbrirProdutosActionPerformed
+        ProdutoView produto = new ProdutoView();
+        produto.setVisible(true);
+    }//GEN-LAST:event_jmiAbrirProdutosActionPerformed
+
+    private void jmiAbrirRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAbrirRelatoriosActionPerformed
+        RelatorioSintetico relatorioSintetico = new RelatorioSintetico();
+        relatorioSintetico.setVisible(true);
+    }//GEN-LAST:event_jmiAbrirRelatoriosActionPerformed
+
+    private void jmiAbrirSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAbrirSobreActionPerformed
+        Sobre sobre = new Sobre();
+        sobre.setVisible(true);
+    }//GEN-LAST:event_jmiAbrirSobreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -145,20 +177,21 @@ public class menu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new menu().setVisible(true);
+                new Menu().setVisible(true);
             }
         });
     }
