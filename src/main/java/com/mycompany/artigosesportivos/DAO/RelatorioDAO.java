@@ -36,7 +36,7 @@ public class RelatorioDAO {
             {
                 Relatorio r = new Relatorio();
                 r.setIdVenda(rs.getInt("idVenda"));
-                //Ver como pegar a data e colocar aqui
+                //Ver como pegar a DATA e colocar aqui
                 r.setCliente(rs.getString("cliente"));
                 r.setValorTotal(rs.getDouble("valorTotal"));
                 
@@ -61,16 +61,55 @@ public class RelatorioDAO {
         return listaVendas;
     }
     
-    public static ArrayList<Relatorio> consultaIndividual(){
+    public static ArrayList<Relatorio> consultaIndividual(int id){
         ResultSet rs = null;
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null; 
         
         ArrayList<Relatorio> listaVendas = new ArrayList<>();
         
-        /*Em desenvolvimento...*/
-        
-        return null;
+        try{
+            /*Conectar com banco*/
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String URL = "jdbc:mysql://localhost:3306/sportssix?useTimezone=true&serverTimezone=UTC&useSSL=false";
+            conexao = DriverManager.getConnection(URL, "root", "");
+            
+            /*Executar procura*/
+            instrucaoSQL = conexao.prepareStatement("SELECT * FROM vendas WHERE idVenda = ?;");
+            
+            instrucaoSQL.setInt(1, id);
+            
+            rs = instrucaoSQL.executeQuery();
+            
+            while(rs.next())
+            {
+                Relatorio r = new Relatorio();
+                r.setIdVenda(rs.getInt("idVenda"));
+                //Ver como pegar a DATA e colocar aqui
+                r.setCliente(rs.getString("cliente"));
+                r.setProdutos((String[]) rs.getObject("produtos")); //Dúvidas aqui
+                r.setQtdProdutos((int[]) rs.getObject("qtdProdutos")); //Dúvidas aqui
+                r.setValorTotal(rs.getDouble("valorTotal"));
+                
+                listaVendas.add(r);
+            }
+            
+        } catch (ClassNotFoundException | SQLException ex) {
+            System.out.println(ex.getMessage());
+            listaVendas = null;
+        } finally {
+            try{
+                if(rs!=null)
+                    rs.close();                
+                if(instrucaoSQL!=null)
+                    instrucaoSQL.close();
+                
+                conexao.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(RelatorioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return listaVendas;
         
     }
 }

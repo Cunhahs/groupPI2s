@@ -11,7 +11,7 @@ public class RelatorioController {
         return RelatorioDAO.consultaGeral();
     }
     
-    public static ArrayList<Relatorio> consultaIndividual(){
-        return RelatorioDAO.consultaIndividual();
+    public static ArrayList<Relatorio> consultaIndividual(int id){
+        return RelatorioDAO.consultaIndividual(id);
     }
 }

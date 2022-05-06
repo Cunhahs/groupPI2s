@@ -5,7 +5,12 @@
  */
 package com.mycompany.artigosesportivos.view;
 
+import com.mycompany.artigosesportivos.DAO.RelatorioDAO;
+import com.mycompany.artigosesportivos.controller.RelatorioController;
+import com.mycompany.artigosesportivos.model.Relatorio;
 import com.mycompany.artigosesportivos.view.RelatorioAnalitico;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -191,12 +196,42 @@ public class RelatorioSintetico extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDetalhesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetalhesActionPerformed
+        /*1 - Pegar ID da linha selecionada
+        2 - Procurar no banco todas as informações*/
+        int coluna = 0;
+        int linha = tblTabelaSintetica.getSelectedRow();
+        int id = (int) tblTabelaSintetica.getModel().getValueAt(linha, coluna);
+        
+        
+        ArrayList<Relatorio> listaRelatorio = RelatorioController.consultaIndividual(id);
+        
         RelatorioAnalitico relatorioAnalitico = new RelatorioAnalitico();
         relatorioAnalitico.setVisible(true);
+        
+        
+        /*3 - Imprimir infos na tela - aqui ou na tela de rAnalitico?*/
+        
+        /*String velocidadeA = String.valueOf(velocidadeAtual);
+        lblVelocidadeAtual.setText(velocidadeA);*/
     }//GEN-LAST:event_btnDetalhesActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+        ArrayList<Relatorio> listaRelatorio = RelatorioController.consultaGeral();
+        
+        DefaultTableModel tmRelatorio = new DefaultTableModel();
+        
+        tmRelatorio.addColumn("ID da venda");
+        tmRelatorio.addColumn("Data da venda");
+        tmRelatorio.addColumn("Cliente");
+        tmRelatorio.addColumn("Valor Total");
+        tblTabelaSintetica.setModel(tmRelatorio);
+        
+        tmRelatorio.setRowCount(0);
+        
+        for (Relatorio r : listaRelatorio) {
+            tmRelatorio.addRow(new Object[]{r.getIdVenda(),r.getDataVenda(),r.getCliente(),r.getValorTotal()});
+        }
+        
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
@@ -228,7 +263,7 @@ public class RelatorioSintetico extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
