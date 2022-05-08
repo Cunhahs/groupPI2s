@@ -11,7 +11,7 @@ import java.util.Date;
  * @author User
  */
 public class Cliente {
-    
+        private int Id;
         private String nome;
         private String cpf;
         private String endereço;
@@ -21,7 +21,7 @@ public class Cliente {
         private String estado;
         private String sexo;
         private String estadoCivil;
-        private String dataNascimento;
+        private Date dataNascimento;
         private String email;
         private String Telefone;
         
@@ -29,7 +29,8 @@ public class Cliente {
             
         }
 
-    public Cliente(String nome, String cpf, String endereço, String numero, String bairro, String cidade, String estado, String sexo, String estadoCivil, String dataNascimento, String email, String Telefone) {
+    public Cliente(Integer Id,String nome, String cpf, String endereço, String numero, String bairro, String cidade, String estado, String sexo, String estadoCivil, Date dataNascimento, String email, String Telefone) {
+        this.Id = Id;
         this.nome = nome;
         this.cpf = cpf;
         this.endereço = endereço;
@@ -44,6 +45,9 @@ public class Cliente {
         this.Telefone = Telefone;
     }
 
+     public Integer getId() {
+        return Id;
+     }
     
 
     public String getNome() {
@@ -82,7 +86,7 @@ public class Cliente {
         return estadoCivil;
     }
 
-    public String getDataNascimento() {
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 
@@ -92,6 +96,11 @@ public class Cliente {
 
     public String getTelefone() {
         return Telefone;
+    }
+    
+    
+    public void setId(Integer Id) {
+        this.Id = Id;
     }
 
     public void setNome(String nome) {
@@ -130,7 +139,7 @@ public class Cliente {
         this.estadoCivil = estadoCivil;
     }
 
-    public void setDataNascimento(String dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
@@ -163,7 +172,5 @@ public class Cliente {
         this.email = email; 
 
     }
-  
-   
 
-}   
+}

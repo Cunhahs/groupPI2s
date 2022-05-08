@@ -106,13 +106,9 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="txtPeriodo" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jdcInicio" min="-2" pref="205" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="227" max="-2" attributes="0"/>
                               <Component id="txtA" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jdcFim" min="-2" pref="223" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="271" max="-2" attributes="0"/>
                               <Component id="btnBuscar" min="-2" pref="103" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           </Group>
@@ -140,8 +136,6 @@
                               <Component id="txtPeriodo" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtA" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jdcInicio" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jdcFim" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="btnBuscar" min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
@@ -232,10 +226,6 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarActionPerformed"/>
               </Events>
-            </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="jdcInicio">
-            </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="jdcFim">
             </Component>
           </SubComponents>
         </Container>

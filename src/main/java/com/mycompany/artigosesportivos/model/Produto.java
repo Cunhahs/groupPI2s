@@ -21,12 +21,12 @@ public class Produto {
     
 }
 
-    public Produto(int codProduto) {
+    public Produto(Integer codProduto) {
         this.codProduto = codProduto;
     }
     
    
-    public int getcodProduto() {
+    public Integer getcodProduto() {
         return codProduto;
     }
 
@@ -50,7 +50,7 @@ public class Produto {
         return valorUnitario;
     }
 
-    public void setcodProduto(int codProduto) {
+    public void setcodProduto(Integer codProduto) {
         this.codProduto = codProduto;
     }
 
@@ -91,6 +91,10 @@ public class Produto {
     public void consultar() {
         this.codProduto = codProduto;
 
+    }
+
+    public String categoria() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
