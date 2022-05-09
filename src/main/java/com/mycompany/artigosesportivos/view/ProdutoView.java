@@ -76,8 +76,8 @@ public class ProdutoView extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tblProduto = new javax.swing.JTable();
         cboCategoria = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jtnCodigo = new javax.swing.JButton();
+        jtnProduto = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -254,18 +254,23 @@ public class ProdutoView extends javax.swing.JFrame {
         cboCategoria.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cboCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Academia e Fitness", "Boxe e Artes Marciais", "Camping, Trilha e Neve", "Ciclismo", "Corrida e Caminhada", "Futebol, Volei e Basquete", "Esportes Aquaticos" }));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Look-icon.png"))); // NOI18N
-        jButton1.setText("Consulta por Codigo");
-        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Look-icon.png"))); // NOI18N
-        jButton2.setText("Consulta por Produto");
-        jButton2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jtnCodigo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jtnCodigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Look-icon.png"))); // NOI18N
+        jtnCodigo.setText("Consulta por Codigo");
+        jtnCodigo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jtnCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jtnCodigoActionPerformed(evt);
+            }
+        });
+
+        jtnProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jtnProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Look-icon.png"))); // NOI18N
+        jtnProduto.setText("Consulta por Produto");
+        jtnProduto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jtnProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtnProdutoActionPerformed(evt);
             }
         });
 
@@ -310,9 +315,9 @@ public class ProdutoView extends javax.swing.JFrame {
                             .addComponent(cboCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(108, 108, 108)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtnCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(114, 114, 114)
-                        .addComponent(jButton2)))
+                        .addComponent(jtnProduto)))
                 .addContainerGap(84, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -322,8 +327,8 @@ public class ProdutoView extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jtnCodigo)
+                    .addComponent(jtnProduto))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -616,9 +621,26 @@ public class ProdutoView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtValorUnitarioActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void jtnProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtnProdutoActionPerformed
+        
+         ArrayList<String[]> filtro = ProdutoController.filtroProduto(txtProduto.getText());
+            DefaultTableModel modelo = (DefaultTableModel) tblProduto.getModel();
+            modelo.setRowCount(0);
+
+            for (String[] item : filtro) {
+                modelo.addRow(item);
+            }
+        
+
+        tblProduto.getColumnModel().getColumn(0).setPreferredWidth(10);
+        tblProduto.getColumnModel().getColumn(1).setPreferredWidth(50);
+        tblProduto.getColumnModel().getColumn(2).setPreferredWidth(50);
+        tblProduto.getColumnModel().getColumn(3).setPreferredWidth(50);
+        tblProduto.getColumnModel().getColumn(4).setPreferredWidth(50);
+        tblProduto.getColumnModel().getColumn(5).setPreferredWidth(50);        
+        
+        
+    }//GEN-LAST:event_jtnProdutoActionPerformed
 
     private void btnExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExcluirMouseClicked
         
@@ -640,6 +662,24 @@ public class ProdutoView extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnExcluirMouseClicked
+
+    private void jtnCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtnCodigoActionPerformed
+        
+            int codProduto = Integer.parseInt(txtCodProduto.getText());
+
+            ArrayList<String[]> filtro = ProdutoController.filtroProduto(codProduto);
+
+            DefaultTableModel modelo = (DefaultTableModel) tblProduto.getModel();
+            modelo.setRowCount(0);
+
+            for (String[] item : filtro) {
+                modelo.addRow(item);
+            }
+        
+        
+        
+        
+    }//GEN-LAST:event_jtnCodigoActionPerformed
 
      public void listarProdutos() {
         //lista toda a base de dados daquela tabela
@@ -716,13 +756,13 @@ public class ProdutoView extends javax.swing.JFrame {
     private javax.swing.JButton btnExcluir;
     private javax.swing.JComboBox<String> cboCategoria;
     private javax.swing.ButtonGroup grupoConsultaProduto;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton jtnCodigo;
+    private javax.swing.JButton jtnProduto;
     private javax.swing.JLabel lblCategoria;
     private javax.swing.JLabel lblCodProduto;
     private javax.swing.JLabel lblDescricaoProduto;

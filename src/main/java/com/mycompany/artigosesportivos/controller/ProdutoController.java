@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Computador
+ * @author Viviane Cipollari
  */
 public class ProdutoController {
 
@@ -76,8 +76,8 @@ public class ProdutoController {
 
     }
 
-    public static ArrayList<String[]> filtroProduto(String nome) {
-        ArrayList<Produto> filtro = ProdutoDAO.filtroNome(nome);
+    public static ArrayList<String[]> filtroProduto(String produto) {
+        ArrayList<Produto> filtro = ProdutoDAO.filtroNome(produto);
         ArrayList<String[]> listaFiltro = new ArrayList<>();
 
         for (Produto item : filtro) {
@@ -86,5 +86,9 @@ public class ProdutoController {
         }
         
         return listaFiltro;
+    }
+
+    public static ArrayList<String[]> filtroProduto(int codProduto) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

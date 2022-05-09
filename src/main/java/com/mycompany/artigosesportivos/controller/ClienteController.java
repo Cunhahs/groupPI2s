@@ -133,8 +133,9 @@ import java.util.Date;
 
         for (Cliente item : filtro) {
             listaFiltro.add(new String[]{String.valueOf(item.getId()), item.getCpf(), item.getNome(),item.getEndereço(), item.getNumero(),
-                  item.getBairro(), item.getCidade(),item.getEstadoCivil(),  String.valueOf(item.getDataNascimento()), item.getEmail(),
-                 item.getEstado(), item.getSexo(),item.getTelefone()});
+                  item.getBairro(), item.getCidade(), item.getEstado(),item.getEstadoCivil(), item.getSexo(), String.valueOf(item.getDataNascimento()),
+                  item.getEmail(),item.getTelefone() });
+
                 
 
         }
@@ -151,8 +152,8 @@ import java.util.Date;
 
         for (Cliente item : filtro) {
              listaFiltro.add(new String[]{String.valueOf(item.getId()), item.getCpf(), item.getNome(),item.getEndereço(), item.getNumero(),
-                  item.getBairro(), item.getCidade(),item.getEstadoCivil(),  String.valueOf(item.getDataNascimento()), item.getEmail(),
-                 item.getEstado(), item.getSexo(),item.getTelefone()});
+                  item.getBairro(), item.getCidade(), item.getEstado(),item.getEstadoCivil(), item.getSexo(), String.valueOf(item.getDataNascimento()),
+                  item.getEmail(),item.getTelefone() });
 
         }
 
