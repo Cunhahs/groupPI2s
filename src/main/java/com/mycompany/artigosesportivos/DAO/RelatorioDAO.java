@@ -36,7 +36,7 @@ public class RelatorioDAO {
             {
                 Relatorio r = new Relatorio();
                 r.setIdVenda(rs.getInt("idVenda"));
-                //Ver como pegar a DATA e colocar aqui
+                r.setDataVenda(rs.getString("dataVenda")); //Duvidas
                 r.setCliente(rs.getString("cliente"));
                 r.setValorTotal(rs.getDouble("valorTotal"));
                 
@@ -85,7 +85,7 @@ public class RelatorioDAO {
             {
                 Relatorio r = new Relatorio();
                 r.setIdVenda(rs.getInt("idVenda"));
-                //Ver como pegar a DATA e colocar aqui
+                r.setDataVenda(rs.getString("dataVenda"));
                 r.setCliente(rs.getString("cliente"));
                 r.setProdutos((String[]) rs.getObject("produtos")); //Dúvidas aqui
                 r.setQtdProdutos((int[]) rs.getObject("qtdProdutos")); //Dúvidas aqui
