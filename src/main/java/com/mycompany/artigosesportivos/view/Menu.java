@@ -32,75 +32,75 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        abrirPDV = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        abrirClientes = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        abrirProdutos = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        abrirRelatorios = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        abrirSobre = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenu1.setText("Ponto de Venda");
 
-        jMenuItem1.setText("Abrir");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        abrirPDV.setText("Abrir");
+        abrirPDV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                abrirPDVActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(abrirPDV);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Clientes");
 
-        jMenuItem2.setText("Abrir");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        abrirClientes.setText("Abrir");
+        abrirClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                abrirClientesActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem2);
+        jMenu2.add(abrirClientes);
 
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Produtos");
 
-        jMenuItem3.setText("Abrir");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        abrirProdutos.setText("Abrir");
+        abrirProdutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                abrirProdutosActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem3);
+        jMenu3.add(abrirProdutos);
 
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Relatórios");
 
-        jMenuItem4.setText("Abrir");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        abrirRelatorios.setText("Abrir");
+        abrirRelatorios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                abrirRelatoriosActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem4);
+        jMenu4.add(abrirRelatorios);
 
         jMenuBar1.add(jMenu4);
 
         jMenu5.setText("Sobre");
 
-        jMenuItem5.setText("Abrir");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        abrirSobre.setText("Abrir");
+        abrirSobre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                abrirSobreActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem5);
+        jMenu5.add(abrirSobre);
 
         jMenuBar1.add(jMenu5);
 
@@ -120,12 +120,12 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void abrirPDVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abrirPDVActionPerformed
         PontodeVenda pdv = new PontodeVenda();
         pdv.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_abrirPDVActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void abrirClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abrirClientesActionPerformed
         ClienteView cliente = null;
         try {
             cliente = new ClienteView();
@@ -133,22 +133,22 @@ public class Menu extends javax.swing.JFrame {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
         cliente.setVisible(true);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_abrirClientesActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void abrirProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abrirProdutosActionPerformed
         ProdutoView produto = new ProdutoView();
         produto.setVisible(true);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_abrirProdutosActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void abrirRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abrirRelatoriosActionPerformed
         RelatorioSintetico relatorioSintetico = new RelatorioSintetico();
         relatorioSintetico.setVisible(true);
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_abrirRelatoriosActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    private void abrirSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abrirSobreActionPerformed
         Sobre sobre = new Sobre();
         sobre.setVisible(true);
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    }//GEN-LAST:event_abrirSobreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,16 +186,16 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem abrirClientes;
+    private javax.swing.JMenuItem abrirPDV;
+    private javax.swing.JMenuItem abrirProdutos;
+    private javax.swing.JMenuItem abrirRelatorios;
+    private javax.swing.JMenuItem abrirSobre;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     // End of variables declaration//GEN-END:variables
 }
