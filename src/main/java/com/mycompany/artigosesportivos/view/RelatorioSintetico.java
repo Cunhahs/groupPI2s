@@ -194,17 +194,17 @@ public class RelatorioSintetico extends javax.swing.JFrame {
         int linha = tblTabelaSintetica.getSelectedRow();
         int id = (int) tblTabelaSintetica.getModel().getValueAt(linha, coluna);
         
+        //Chamar método da classe relatorio e preencher essas informações para passar de construtor na abertura da nova tela
+        int idVenda = 0;
+        String nomeCliente = "Teste";
+        String dataVenda = "Teste";
+        double valorTotal = 0;
         
         ArrayList<Relatorio> listaRelatorio = RelatorioController.consultaIndividual(id);
         
-        RelatorioAnalitico relatorioAnalitico = new RelatorioAnalitico();
+        RelatorioAnalitico relatorioAnalitico = new RelatorioAnalitico(idVenda, nomeCliente, dataVenda, valorTotal);
         relatorioAnalitico.setVisible(true);
-        
-        
-        /*3 - Imprimir infos na tela - aqui ou na tela de rAnalitico?*/
-        
-        /*String velocidadeA = String.valueOf(velocidadeAtual);
-        lblVelocidadeAtual.setText(velocidadeA);*/
+
     }//GEN-LAST:event_btnDetalhesActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed

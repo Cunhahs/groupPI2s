@@ -36,7 +36,7 @@ public class RelatorioDAO {
             {
                 Relatorio r = new Relatorio();
                 r.setIdVenda(rs.getInt("idVenda"));
-                r.setDataVenda(rs.getString("dataVenda")); //Duvidas
+                r.setDataVenda(rs.getString("dataVenda"));
                 r.setCliente(rs.getString("cliente"));
                 r.setValorTotal(rs.getDouble("valorTotal"));
                 
@@ -74,8 +74,10 @@ public class RelatorioDAO {
             String URL = "jdbc:mysql://localhost:3306/sportssix?useTimezone=true&serverTimezone=UTC&useSSL=false";
             conexao = DriverManager.getConnection(URL, "root", "");
             
-            /*Executar procura*/
-            instrucaoSQL = conexao.prepareStatement("SELECT * FROM vendas WHERE idVenda = ?;");
+            /*Executar procura - vou precisar usar o JOIN pra juntar as tabelas Cliente, Produtos e Vendas
+            vou gerar uma linha de cada vez para imprimir no relatorio sintetico*/
+            
+            instrucaoSQL = conexao.prepareStatement("SELECT * FROM vendas WHERE idVenda = ?;"); //Join
             
             instrucaoSQL.setInt(1, id);
             

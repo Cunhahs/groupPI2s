@@ -11,12 +11,27 @@ package com.mycompany.artigosesportivos.view;
  */
 public class RelatorioAnalitico extends javax.swing.JFrame {
 
+    private int idVenda = 0;
+    private String nomeCliente;
+    private String dataVenda;
+    private double valorTotal = 0.0;
+    
     /**
      * Creates new form RelatorioAnalitico
      */
-    public RelatorioAnalitico() {
+    
+    //Passar as infos aqui construtor
+    public RelatorioAnalitico(int idVenda, String nomeCliente, String dataVenda, double valorTotal) {
+        initComponents();
+        //Passar as informações para o label, pegar do bd
+        lblDataVendaBD.setText(dataVenda);
+        lblNomeClienteBD.setText(nomeCliente);
+    }
+
+    public RelatorioAnalitico(){
         initComponents();
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,6 +52,8 @@ public class RelatorioAnalitico extends javax.swing.JFrame {
         lblNomeClienteBD = new javax.swing.JLabel();
         lblDataVendaBD = new javax.swing.JLabel();
         lblValorTotalBD = new javax.swing.JLabel();
+        lblVenda = new javax.swing.JLabel();
+        lblIDVenda = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(java.awt.Color.lightGray);
@@ -73,6 +90,12 @@ public class RelatorioAnalitico extends javax.swing.JFrame {
         lblValorTotalBD.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblValorTotalBD.setText("00,00");
 
+        lblVenda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblVenda.setText("ID da Venda:");
+
+        lblIDVenda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblIDVenda.setText("00");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -94,7 +117,11 @@ public class RelatorioAnalitico extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(lblValorTotal)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblValorTotalBD))))
+                                .addComponent(lblValorTotalBD))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblVenda)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblIDVenda))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(292, 292, 292)
                         .addComponent(lblRelatorioAnalitico)))
@@ -105,7 +132,7 @@ public class RelatorioAnalitico extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(lblRelatorioAnalitico)
-                .addGap(22, 22, 22)
+                .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCliente)
                     .addComponent(lblNomeClienteBD))
@@ -117,9 +144,13 @@ public class RelatorioAnalitico extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblValorTotal)
                     .addComponent(lblValorTotalBD))
-                .addGap(32, 32, 32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblVenda)
+                    .addComponent(lblIDVenda))
+                .addGap(19, 19, 19)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -179,10 +210,12 @@ public class RelatorioAnalitico extends javax.swing.JFrame {
     private javax.swing.JLabel lblCliente;
     private javax.swing.JLabel lblDataVenda;
     private javax.swing.JLabel lblDataVendaBD;
+    private javax.swing.JLabel lblIDVenda;
     private javax.swing.JLabel lblNomeClienteBD;
     private javax.swing.JLabel lblRelatorioAnalitico;
     private javax.swing.JLabel lblValorTotal;
     private javax.swing.JLabel lblValorTotalBD;
+    private javax.swing.JLabel lblVenda;
     private javax.swing.JTable tblDetalhes;
     // End of variables declaration//GEN-END:variables
 }
