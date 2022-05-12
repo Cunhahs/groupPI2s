@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.artigosesportivos.view;
 
 /**
@@ -26,6 +21,10 @@ public class RelatorioAnalitico extends javax.swing.JFrame {
         //Passar as informações para o label, pegar do bd
         lblDataVendaBD.setText(dataVenda);
         lblNomeClienteBD.setText(nomeCliente);
+        String valorTotalstr = Double.toString(valorTotal);
+        lblValorTotalBD.setText(valorTotalstr);
+        String idVendastr = Integer.toString(idVenda);
+        lblIDVenda.setText(idVendastr);
     }
 
     public RelatorioAnalitico(){

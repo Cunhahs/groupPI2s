@@ -10,6 +10,7 @@ import com.mycompany.artigosesportivos.controller.RelatorioController;
 import com.mycompany.artigosesportivos.model.Relatorio;
 import com.mycompany.artigosesportivos.view.RelatorioAnalitico;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -46,6 +47,8 @@ public class RelatorioSintetico extends javax.swing.JFrame {
         txtValorTotal = new javax.swing.JLabel();
         btnDetalhes = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
+        jdcInicio = new com.toedter.calendar.JDateChooser();
+        jdcFim = new com.toedter.calendar.JDateChooser();
         txtTitulo = new javax.swing.JLabel();
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -108,15 +111,18 @@ public class RelatorioSintetico extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(44, 44, 44)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(txtPeriodo)
-                        .addGap(227, 227, 227)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jdcInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(txtA)
-                        .addGap(271, 271, 271)
-                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10))
+                        .addGap(18, 18, 18)
+                        .addComponent(jdcFim, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addComponent(txtTotal1)
@@ -127,16 +133,20 @@ public class RelatorioSintetico extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
+
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jdcFim, jdcInicio});
+
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtPeriodo)
-                        .addComponent(txtA))
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                .addGap(19, 19, 19)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jdcFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtA)
+                    .addComponent(jdcInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPeriodo))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -161,7 +171,7 @@ public class RelatorioSintetico extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,11 +204,11 @@ public class RelatorioSintetico extends javax.swing.JFrame {
         int linha = tblTabelaSintetica.getSelectedRow();
         int id = (int) tblTabelaSintetica.getModel().getValueAt(linha, coluna);
         
-        //Chamar método da classe relatorio e preencher essas informações para passar de construtor na abertura da nova tela
-        int idVenda = 0;
-        String nomeCliente = "Teste";
-        String dataVenda = "Teste";
-        double valorTotal = 0;
+        //Chamar método da classe relatorio e preencher essas informações para passar de construtor na abertura da nova tela - ver como bd vai ser montado
+        int idVenda = id; //metodo aqui
+        String nomeCliente = "metodo aqui";
+        String dataVenda = "metodo aqui";
+        double valorTotal = 5.63; //metodo aqui
         
         ArrayList<Relatorio> listaRelatorio = RelatorioController.consultaIndividual(id);
         
@@ -208,7 +218,9 @@ public class RelatorioSintetico extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDetalhesActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        ArrayList<Relatorio> listaRelatorio = RelatorioController.consultaGeral();
+        Date dataInicio = jdcInicio.getDate();
+        Date dataFim = jdcFim.getDate();
+        ArrayList<Relatorio> listaRelatorio = RelatorioController.consultaGeral(dataInicio, dataFim);
         
         DefaultTableModel tmRelatorio = new DefaultTableModel();
         
@@ -272,6 +284,8 @@ public class RelatorioSintetico extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
+    private com.toedter.calendar.JDateChooser jdcFim;
+    private com.toedter.calendar.JDateChooser jdcInicio;
     private javax.swing.JTable tblTabelaSintetica;
     private javax.swing.JLabel txtA;
     private javax.swing.JLabel txtPeriodo;

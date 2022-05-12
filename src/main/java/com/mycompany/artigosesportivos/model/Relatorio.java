@@ -1,12 +1,14 @@
 package com.mycompany.artigosesportivos.model;
 
+import java.util.Date;
+
 /**
  *
  * @author nicolly.crsouza
  */
 public class Relatorio {
     private static int idVenda;
-    private static String dataVenda;
+    private static Date dataVenda;
     private static String cliente;
     private static double valorTotal;
     private static String[] produtos;
@@ -22,14 +24,15 @@ public class Relatorio {
     public static void setIdVenda(int idVenda) {
         Relatorio.idVenda = idVenda;
     }
-    
-    public static String getDataVenda() {
+
+    public static Date getDataVenda() {
         return dataVenda;
     }
 
-    public static void setDataVenda(String dataVenda) {
+    public static void setDataVenda(Date dataVenda) {
         Relatorio.dataVenda = dataVenda;
     }
+    
 
     public static String getCliente() {
         return cliente;

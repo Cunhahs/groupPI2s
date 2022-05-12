@@ -9,12 +9,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class RelatorioDAO {
     
-    public static ArrayList<Relatorio> consultaGeral(){
+    public static ArrayList<Relatorio> consultaGeral(Date dataInicio, Date dataFim){
         ResultSet rs = null;
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null; 
@@ -28,15 +29,20 @@ public class RelatorioDAO {
             conexao = DriverManager.getConnection(URL, "root", "");
             
             /*Executar procura*/
-            instrucaoSQL = conexao.prepareStatement("SELECT * FROM vendas;");
+            //Utilizar o between pra passar as datas como parâmetro
+            instrucaoSQL = conexao.prepareStatement("SELECT * FROM vendas WHERE dataVenda BETWEEN #?# AND #?#;");
             
+            //COMANDO PRA PASSAR A DATA - ESTUDAR LAB
+//            instrucaoSQL.setDate(3, new java.sql.Date(pNotaFiscal.getDataEmissao().getTime()));
+//            instrucaoSQL.setDate(4, new java.sql.Date(pNotaFiscal.getDataEntrada().getTime()));
+
             rs = instrucaoSQL.executeQuery();
             
             while(rs.next())
             {
                 Relatorio r = new Relatorio();
                 r.setIdVenda(rs.getInt("idVenda"));
-                r.setDataVenda(rs.getString("dataVenda"));
+                r.setDataVenda(rs.getDate("dataVenda"));
                 r.setCliente(rs.getString("cliente"));
                 r.setValorTotal(rs.getDouble("valorTotal"));
                 
@@ -87,7 +93,7 @@ public class RelatorioDAO {
             {
                 Relatorio r = new Relatorio();
                 r.setIdVenda(rs.getInt("idVenda"));
-                r.setDataVenda(rs.getString("dataVenda"));
+                r.setDataVenda(rs.getDate("dataVenda"));
                 r.setCliente(rs.getString("cliente"));
                 r.setProdutos((String[]) rs.getObject("produtos")); //Dúvidas aqui
                 r.setQtdProdutos((int[]) rs.getObject("qtdProdutos")); //Dúvidas aqui
