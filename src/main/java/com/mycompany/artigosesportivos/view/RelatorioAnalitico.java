@@ -1,5 +1,13 @@
 package com.mycompany.artigosesportivos.view;
 
+import com.mycompany.artigosesportivos.controller.RelatorioController;
+import com.mycompany.artigosesportivos.model.Relatorio;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author nicolly.crsouza
@@ -15,16 +23,32 @@ public class RelatorioAnalitico extends javax.swing.JFrame {
      * Creates new form RelatorioAnalitico
      */
     
-    //Passar as infos aqui construtor
-    public RelatorioAnalitico(int idVenda, String nomeCliente, String dataVenda, double valorTotal) {
+    public RelatorioAnalitico(int idVenda, String nomeCliente, Date dataVenda, double valorTotal) {
         initComponents();
-        //Passar as informações para o label, pegar do bd
-        lblDataVendaBD.setText(dataVenda);
+        
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String strData = dateFormat.format(dataVenda);
+        
+        lblDataVendaBD.setText(strData);
         lblNomeClienteBD.setText(nomeCliente);
         String valorTotalstr = Double.toString(valorTotal);
         lblValorTotalBD.setText(valorTotalstr);
         String idVendastr = Integer.toString(idVenda);
         lblIDVenda.setText(idVendastr);
+        
+        ArrayList<Relatorio> listaRelatorio = RelatorioController.consultaIndividual(idVenda);
+        
+        DefaultTableModel tmRelatorioAnalitico = new DefaultTableModel();
+        
+        tmRelatorioAnalitico.addColumn("Produtos");
+        tmRelatorioAnalitico.addColumn("Quantidade de produtos");
+        tblDetalhes.setModel(tmRelatorioAnalitico);
+        
+        tmRelatorioAnalitico.setRowCount(0);
+        
+        for (Relatorio r : listaRelatorio) {
+            tmRelatorioAnalitico.addRow(new Object[]{r.getProdutos(), r.getQtdProdutos()});
+        }
     }
 
     public RelatorioAnalitico(){

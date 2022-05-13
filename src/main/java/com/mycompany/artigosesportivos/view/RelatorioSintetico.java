@@ -11,6 +11,7 @@ import com.mycompany.artigosesportivos.model.Relatorio;
 import com.mycompany.artigosesportivos.view.RelatorioAnalitico;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -198,23 +199,20 @@ public class RelatorioSintetico extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDetalhesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetalhesActionPerformed
-        /*1 - Pegar ID da linha selecionada
-        2 - Procurar no banco todas as informações*/
         int coluna = 0;
         int linha = tblTabelaSintetica.getSelectedRow();
         int id = (int) tblTabelaSintetica.getModel().getValueAt(linha, coluna);
         
+        ArrayList<Relatorio> objeto = RelatorioController.consultaIndividual(id);
+        
+        Relatorio r = objeto.get(0);
         //Chamar método da classe relatorio e preencher essas informações para passar de construtor na abertura da nova tela - ver como bd vai ser montado
-        int idVenda = id; //metodo aqui
-        String nomeCliente = "metodo aqui";
-        String dataVenda = "metodo aqui";
-        double valorTotal = 5.63; //metodo aqui
+        String nomeCliente = r.getCliente();
+        Date dataVenda = r.getDataVenda();
+        double valorTotal = r.getValorTotal();
         
-        ArrayList<Relatorio> listaRelatorio = RelatorioController.consultaIndividual(id);
-        
-        RelatorioAnalitico relatorioAnalitico = new RelatorioAnalitico(idVenda, nomeCliente, dataVenda, valorTotal);
+        RelatorioAnalitico relatorioAnalitico = new RelatorioAnalitico(id, nomeCliente, dataVenda, valorTotal);
         relatorioAnalitico.setVisible(true);
-
     }//GEN-LAST:event_btnDetalhesActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed

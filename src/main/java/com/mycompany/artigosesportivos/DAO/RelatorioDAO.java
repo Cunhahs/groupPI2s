@@ -22,6 +22,7 @@ public class RelatorioDAO {
         
         ArrayList<Relatorio> listaVendas = new ArrayList<>();
         
+        
         try{
             /*Conectar com banco*/
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -29,12 +30,11 @@ public class RelatorioDAO {
             conexao = DriverManager.getConnection(URL, "root", "");
             
             /*Executar procura*/
-            //Utilizar o between pra passar as datas como parâmetro
             instrucaoSQL = conexao.prepareStatement("SELECT * FROM vendas WHERE dataVenda BETWEEN #?# AND #?#;");
             
-            //COMANDO PRA PASSAR A DATA - ESTUDAR LAB
-//            instrucaoSQL.setDate(3, new java.sql.Date(pNotaFiscal.getDataEmissao().getTime()));
-//            instrucaoSQL.setDate(4, new java.sql.Date(pNotaFiscal.getDataEntrada().getTime()));
+            /*Passando data como parâmetro*/
+            instrucaoSQL.setDate(1, new java.sql.Date(dataInicio.getTime()));
+            instrucaoSQL.setDate(2, new java.sql.Date(dataFim.getTime()));
 
             rs = instrucaoSQL.executeQuery();
             
@@ -72,7 +72,7 @@ public class RelatorioDAO {
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null; 
         
-        ArrayList<Relatorio> listaVendas = new ArrayList<>();
+        ArrayList<Relatorio> objeto = new ArrayList<>();
         
         try{
             /*Conectar com banco*/
@@ -95,16 +95,16 @@ public class RelatorioDAO {
                 r.setIdVenda(rs.getInt("idVenda"));
                 r.setDataVenda(rs.getDate("dataVenda"));
                 r.setCliente(rs.getString("cliente"));
-                r.setProdutos((String[]) rs.getObject("produtos")); //Dúvidas aqui
-                r.setQtdProdutos((int[]) rs.getObject("qtdProdutos")); //Dúvidas aqui
+                r.setProdutos(rs.getString("produto"));
+                r.setQtdProdutos(rs.getInt("qtdProduto"));
                 r.setValorTotal(rs.getDouble("valorTotal"));
                 
-                listaVendas.add(r);
+                objeto.add(r);
             }
             
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println(ex.getMessage());
-            listaVendas = null;
+            objeto = null;
         } finally {
             try{
                 if(rs!=null)
@@ -117,7 +117,7 @@ public class RelatorioDAO {
                 Logger.getLogger(RelatorioDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        return listaVendas;
+        return objeto;
         
     }
 }

@@ -11,8 +11,8 @@ public class Relatorio {
     private static Date dataVenda;
     private static String cliente;
     private static double valorTotal;
-    private static String[] produtos;
-    private static int[] qtdProdutos;
+    private static String produtos;
+    private static int qtdProdutos;
 
     public Relatorio() {
     }
@@ -50,20 +50,22 @@ public class Relatorio {
         Relatorio.valorTotal = valorTotal;
     }
 
-    public static String[] getProdutos() {
+    public static String getProdutos() {
         return produtos;
     }
 
-    public static void setProdutos(String[] produtos) {
+    public static void setProdutos(String produtos) {
         Relatorio.produtos = produtos;
     }
 
-    public static int[] getQtdProdutos() {
+    public static int getQtdProdutos() {
         return qtdProdutos;
     }
 
-    public static void setQtdProdutos(int[] qtdProdutos) {
+    public static void setQtdProdutos(int qtdProdutos) {
         Relatorio.qtdProdutos = qtdProdutos;
     }
+
+
 }
 
