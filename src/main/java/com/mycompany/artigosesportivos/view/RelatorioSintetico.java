@@ -206,7 +206,7 @@ public class RelatorioSintetico extends javax.swing.JFrame {
         ArrayList<Relatorio> objeto = RelatorioController.consultaIndividual(id);
         
         Relatorio r = objeto.get(0);
-        //Chamar método da classe relatorio e preencher essas informações para passar de construtor na abertura da nova tela - ver como bd vai ser montado
+        
         String nomeCliente = r.getCliente();
         Date dataVenda = r.getDataVenda();
         double valorTotal = r.getValorTotal();

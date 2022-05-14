@@ -13,8 +13,20 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+*
+* @author nicolly.crsouza
+* @see controller.RelatorioDAO
+*/
 public class RelatorioDAO {
     
+/**
+    * Método para consultar (em um banco de dados) as vendas realizadas em um determinado período
+    * @param Date dataInicio - Data inicial do período para procura no banco
+    * @param Date dataFim - Data final do período para procura no banco
+    * @return ArrayList - contém uma lista com as vendas realizadas no período procurado
+    */
+
     public static ArrayList<Relatorio> consultaGeral(Date dataInicio, Date dataFim){
         ResultSet rs = null;
         Connection conexao = null;
@@ -67,22 +79,25 @@ public class RelatorioDAO {
         return listaVendas;
     }
     
+/**
+    * Método para consultar (em um banco de dados) uma determinada venda
+    * @param int id - identificador da venda a ser procurada no banco
+    * @return ArrayList - contém uma lista com as propriedades da venda procurada
+    */
     public static ArrayList<Relatorio> consultaIndividual(int id){
         ResultSet rs = null;
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null; 
         
-        ArrayList<Relatorio> objeto = new ArrayList<>();
+        ArrayList<Relatorio> venda = new ArrayList<>();
         
         try{
-            /*Conectar com banco*/
             Class.forName("com.mysql.cj.jdbc.Driver");
             String URL = "jdbc:mysql://localhost:3306/sportssix?useTimezone=true&serverTimezone=UTC&useSSL=false";
             conexao = DriverManager.getConnection(URL, "root", "");
             
             /*Executar procura - vou precisar usar o JOIN pra juntar as tabelas Cliente, Produtos e Vendas
             vou gerar uma linha de cada vez para imprimir no relatorio sintetico*/
-            
             instrucaoSQL = conexao.prepareStatement("SELECT * FROM vendas WHERE idVenda = ?;"); //Join
             
             instrucaoSQL.setInt(1, id);
@@ -99,12 +114,12 @@ public class RelatorioDAO {
                 r.setQtdProdutos(rs.getInt("qtdProduto"));
                 r.setValorTotal(rs.getDouble("valorTotal"));
                 
-                objeto.add(r);
+                venda.add(r);
             }
             
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println(ex.getMessage());
-            objeto = null;
+            venda = null;
         } finally {
             try{
                 if(rs!=null)
@@ -117,7 +132,7 @@ public class RelatorioDAO {
                 Logger.getLogger(RelatorioDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        return objeto;
+        return venda;
         
     }
 }

@@ -66,32 +66,29 @@ public class RelatorioAnalitico extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lblRelatorioAnalitico = new javax.swing.JLabel();
-        lblCliente = new javax.swing.JLabel();
-        lblDataVenda = new javax.swing.JLabel();
-        lblValorTotal = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        lblNomeClienteBD = new javax.swing.JLabel();
+        lblValorTotalBD = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDetalhes = new javax.swing.JTable();
-        lblNomeClienteBD = new javax.swing.JLabel();
-        lblDataVendaBD = new javax.swing.JLabel();
-        lblValorTotalBD = new javax.swing.JLabel();
-        lblVenda = new javax.swing.JLabel();
+        lblRelatorioAnalitico = new javax.swing.JLabel();
+        lblDataVenda = new javax.swing.JLabel();
+        lblValorTotal = new javax.swing.JLabel();
         lblIDVenda = new javax.swing.JLabel();
+        lblCliente = new javax.swing.JLabel();
+        lblDataVendaBD = new javax.swing.JLabel();
+        lblVenda = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(java.awt.Color.lightGray);
 
-        lblRelatorioAnalitico.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblRelatorioAnalitico.setText("Relatório Analítico");
+        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lblCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblCliente.setText("Cliente:");
+        lblNomeClienteBD.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblNomeClienteBD.setText("Nome completo");
 
-        lblDataVenda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblDataVenda.setText("Data da venda:");
-
-        lblValorTotal.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblValorTotal.setText("Valor total: R$");
+        lblValorTotalBD.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblValorTotalBD.setText("00,00");
 
         tblDetalhes.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         tblDetalhes.setModel(new javax.swing.table.DefaultTableModel(
@@ -104,87 +101,108 @@ public class RelatorioAnalitico extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblDetalhes);
 
-        lblNomeClienteBD.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblNomeClienteBD.setText("Nome completo");
+        lblRelatorioAnalitico.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblRelatorioAnalitico.setText("Relatório Analítico");
+
+        lblDataVenda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblDataVenda.setText("Data da venda:");
+
+        lblValorTotal.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblValorTotal.setText("Valor total: R$");
+
+        lblIDVenda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblIDVenda.setText("00");
+
+        lblCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCliente.setText("Cliente:");
 
         lblDataVendaBD.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblDataVendaBD.setText("dd/MM/yyyy");
 
-        lblValorTotalBD.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblValorTotalBD.setText("00,00");
-
         lblVenda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblVenda.setText("ID da Venda:");
 
-        lblIDVenda.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblIDVenda.setText("00");
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblDataVenda)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblDataVendaBD))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblCliente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblNomeClienteBD))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblValorTotal)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblValorTotalBD))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblVenda)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblIDVenda))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(241, 241, 241)
+                        .addComponent(lblRelatorioAnalitico)))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblRelatorioAnalitico)
+                .addGap(10, 10, 10)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCliente)
+                    .addComponent(lblNomeClienteBD))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDataVenda)
+                    .addComponent(lblDataVendaBD))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblValorTotal)
+                    .addComponent(lblValorTotalBD))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblVenda)
+                    .addComponent(lblIDVenda))
+                .addGap(19, 19, 19)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblDataVenda)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblDataVendaBD))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblCliente)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblNomeClienteBD))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblValorTotal)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblValorTotalBD))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblVenda)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblIDVenda))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(292, 292, 292)
-                        .addComponent(lblRelatorioAnalitico)))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(lblRelatorioAnalitico)
-                .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCliente)
-                    .addComponent(lblNomeClienteBD))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDataVenda)
-                    .addComponent(lblDataVendaBD))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblValorTotal)
-                    .addComponent(lblValorTotalBD))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblVenda)
-                    .addComponent(lblIDVenda))
-                .addGap(19, 19, 19)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -229,6 +247,7 @@ public class RelatorioAnalitico extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCliente;
     private javax.swing.JLabel lblDataVenda;
