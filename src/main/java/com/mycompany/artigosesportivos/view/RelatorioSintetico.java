@@ -220,6 +220,8 @@ public class RelatorioSintetico extends javax.swing.JFrame {
         Date dataFim = jdcFim.getDate();
         ArrayList<Relatorio> listaRelatorio = RelatorioController.consultaGeral(dataInicio, dataFim);
         
+        double valorMensal = 0;
+        
         DefaultTableModel tmRelatorio = new DefaultTableModel();
         
         tmRelatorio.addColumn("ID da venda");
@@ -232,8 +234,11 @@ public class RelatorioSintetico extends javax.swing.JFrame {
         
         for (Relatorio r : listaRelatorio) {
             tmRelatorio.addRow(new Object[]{r.getIdVenda(),r.getDataVenda(),r.getCliente(),r.getValorTotal()});
+            valorMensal = valorMensal + r.getValorTotal();
         }
         
+        String strValorMensal = Double.toString(valorMensal);
+        txtValorTotal.setText(strValorMensal);
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
