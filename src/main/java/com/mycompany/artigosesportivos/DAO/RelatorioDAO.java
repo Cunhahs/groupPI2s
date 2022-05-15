@@ -42,7 +42,7 @@ public class RelatorioDAO {
             conexao = DriverManager.getConnection(URL, "root", "");
             
             /*Executar procura*/
-            instrucaoSQL = conexao.prepareStatement("SELECT * FROM vendas WHERE dataVenda BETWEEN #?# AND #?#;");
+            instrucaoSQL = conexao.prepareStatement("SELECT * FROM venda JOIN cliente ON venda.idCliente = cliente.idCliente WHERE dataVenda BETWEEN ? AND ?;");
             
             /*Passando data como parâmetro*/
             instrucaoSQL.setDate(1, new java.sql.Date(dataInicio.getTime()));
@@ -50,12 +50,11 @@ public class RelatorioDAO {
 
             rs = instrucaoSQL.executeQuery();
             
-            while(rs.next())
-            {
+            while(rs.next()){
                 Relatorio r = new Relatorio();
                 r.setIdVenda(rs.getInt("idVenda"));
                 r.setDataVenda(rs.getDate("dataVenda"));
-                r.setCliente(rs.getString("cliente"));
+                r.setCliente(rs.getString("cliente.nome"));
                 r.setValorTotal(rs.getDouble("valorTotal"));
                 
                 listaVendas.add(r);
@@ -98,7 +97,7 @@ public class RelatorioDAO {
             
             /*Executar procura - vou precisar usar o JOIN pra juntar as tabelas Cliente, Produtos e Vendas
             vou gerar uma linha de cada vez para imprimir no relatorio sintetico*/
-            instrucaoSQL = conexao.prepareStatement("SELECT * FROM vendas WHERE idVenda = ?;"); //Join
+            instrucaoSQL = conexao.prepareStatement("SELECT idVenda, cliente.nome, dataVenda, produto.nome, qtdProduto, valorTotal FROM venda JOIN cliente ON venda.idCliente = cliente.idCliente JOIN produto ON venda.idProduto = produto.idProduto WHERE idVenda = ?;");
             
             instrucaoSQL.setInt(1, id);
             
@@ -109,8 +108,8 @@ public class RelatorioDAO {
                 Relatorio r = new Relatorio();
                 r.setIdVenda(rs.getInt("idVenda"));
                 r.setDataVenda(rs.getDate("dataVenda"));
-                r.setCliente(rs.getString("cliente"));
-                r.setProdutos(rs.getString("produto"));
+                r.setCliente(rs.getString("cliente.nome"));
+                r.setProdutos(rs.getString("produto.nome"));
                 r.setQtdProdutos(rs.getInt("qtdProduto"));
                 r.setValorTotal(rs.getDouble("valorTotal"));
                 

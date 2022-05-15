@@ -7,65 +7,63 @@ import java.util.Date;
  * @author nicolly.crsouza
  */
 public class Relatorio {
-    private static int idVenda;
-    private static Date dataVenda;
-    private static String cliente;
-    private static double valorTotal;
-    private static String produtos;
-    private static int qtdProdutos;
+    private int idVenda;
+    private Date dataVenda;
+    private String cliente;
+    private double valorTotal;
+    private String produtos;
+    private int qtdProdutos;
 
     public Relatorio() {
     }
 
-    public static int getIdVenda() {
+    public int getIdVenda() {
         return idVenda;
     }
 
-    public static void setIdVenda(int idVenda) {
-        Relatorio.idVenda = idVenda;
+    public void setIdVenda(int idVenda) {
+        this.idVenda = idVenda;
     }
 
-    public static Date getDataVenda() {
+    public Date getDataVenda() {
         return dataVenda;
     }
 
-    public static void setDataVenda(Date dataVenda) {
-        Relatorio.dataVenda = dataVenda;
+    public void setDataVenda(Date dataVenda) {
+        this.dataVenda = dataVenda;
     }
-    
 
-    public static String getCliente() {
+    public String getCliente() {
         return cliente;
     }
 
-    public static void setCliente(String cliente) {
-        Relatorio.cliente = cliente;
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
     }
 
-    public static Double getValorTotal() {
+    public double getValorTotal() {
         return valorTotal;
     }
 
-    public static void setValorTotal(Double valorTotal) {
-        Relatorio.valorTotal = valorTotal;
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
     }
 
-    public static String getProdutos() {
+    public String getProdutos() {
         return produtos;
     }
 
-    public static void setProdutos(String produtos) {
-        Relatorio.produtos = produtos;
+    public void setProdutos(String produtos) {
+        this.produtos = produtos;
     }
 
-    public static int getQtdProdutos() {
+    public int getQtdProdutos() {
         return qtdProdutos;
     }
 
-    public static void setQtdProdutos(int qtdProdutos) {
-        Relatorio.qtdProdutos = qtdProdutos;
+    public void setQtdProdutos(int qtdProdutos) {
+        this.qtdProdutos = qtdProdutos;
     }
-
 
 }
 
