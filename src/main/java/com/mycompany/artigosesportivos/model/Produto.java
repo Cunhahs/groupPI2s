@@ -11,7 +11,7 @@ package com.mycompany.artigosesportivos.model;
 public class Produto {
     
     private int codProduto;
-    private String descricaoProduto;
+    private String nomeProduto;
     private String marca;
     private String categoria;
     private int qtdeEstoque;
@@ -30,8 +30,8 @@ public class Produto {
         return codProduto;
     }
 
-    public String getDescricaoProduto() {
-        return descricaoProduto;
+    public String getnomeProduto() {
+        return nomeProduto;
     }
 
     public String getMarca() {
@@ -54,8 +54,8 @@ public class Produto {
         this.codProduto = codProduto;
     }
 
-    public void setDescricaoProduto(String descricaoProduto) {
-        this.descricaoProduto = descricaoProduto;
+    public void setnomeProduto(String descricaoProduto) {
+        this.nomeProduto = descricaoProduto;
     }
 
     public void setMarca(String marca) {

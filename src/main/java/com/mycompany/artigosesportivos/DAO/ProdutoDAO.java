@@ -16,12 +16,18 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
- *
- * @author Viviane Cipollari
+ * Classe responsável por promover a conexão com o banco de dados. É possível
+ * para adicionar, alteração, exclusão e manutenção de clientes.
+ * 
+ *  @author VivianeCipollari
+ * @version 1.0
+ * @ee controller.ClienteController
+ * @see model.Cliente
+ * 
  */
 public class ProdutoDAO {
 
-    public static boolean salvar(Produto p) {
+    public static boolean adicionar(Produto p) {
         boolean retorno = false;
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
@@ -35,7 +41,7 @@ public class ProdutoDAO {
 
             //parametros para gravar
             instrucaoSQL.setInt(1, p.getcodProduto());
-            instrucaoSQL.setString(2, p.getDescricaoProduto());
+            instrucaoSQL.setString(2, p.getnomeProduto());
             instrucaoSQL.setString(3, p.getMarca());
             instrucaoSQL.setString(3, p.categoria());
             instrucaoSQL.setInt(4, (int) p.getQtdeEstoque());
@@ -88,7 +94,7 @@ public class ProdutoDAO {
                     + "categoria,  qtde em Estoque, Valor Unitario?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
 
             instrucaoSQL.setInt(1, p.getcodProduto());
-            instrucaoSQL.setString(2, p.getDescricaoProduto());
+            instrucaoSQL.setString(2, p.getnomeProduto());
             instrucaoSQL.setString(3, p.getMarca());
             instrucaoSQL.setString(3, p.categoria());
             instrucaoSQL.setInt(4, (int) p.getQtdeEstoque());
@@ -124,7 +130,7 @@ public class ProdutoDAO {
     /**
      * Método para excluir informações da base de dados
      *
-     * @param pID inteiro
+     * @param pCodProduto inteiro
      * @return true - para sucesso | false - falha
      *
      */
@@ -188,8 +194,8 @@ public class ProdutoDAO {
             //percorrer o result set
             while (rs.next()) {
                 Produto c = new Produto();
-                c.setcodProduto(rs.getInt("id"));
-                c.setDescricaoProduto(rs.getString("Produto"));
+                c.setcodProduto(rs.getInt("codProduto"));
+                c.setnomeProduto(rs.getString("Produto"));
                 c.setMarca(rs.getString("Marca"));
                 c.setCategoria(rs.getString("categoria"));
                 c.setQtdeEstoque(rs.getInt("qtde Estoque"));
@@ -221,10 +227,10 @@ public class ProdutoDAO {
     /**
      * Método para selecionar um produto pelo seu identificador no banco de dados.
      * 
-     * @param id inteiro
+     * @param codProduto inteiro
      * @return obj Produto
      */
-    public static Produto listarPorId(int id) { //método usado para venda view
+    public static Produto listarPorCodProduto(int  codProduto) { //método usado para venda view
         ResultSet rs = null;
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
@@ -242,7 +248,7 @@ public class ProdutoDAO {
             if (rs.next()) {
                 Produto c = new Produto();
                 c.setcodProduto(rs.getInt("id"));
-                c.setDescricaoProduto(rs.getString("Produto"));
+                c.setnomeProduto(rs.getString("Produto"));
                 c.setMarca(rs.getString("Marca"));
                 c.setCategoria(rs.getString("categoria"));
                 c.setQtdeEstoque(rs.getInt("qtde Estoque"));
@@ -278,7 +284,7 @@ public class ProdutoDAO {
      * @param ID inteiro
      * @return  ArrayList da classe Produto
      */
-    public static ArrayList<Produto> filtroPorId(int ID) { //filtro para produto view
+    public static ArrayList<Produto> filtroPorCodProduto(int ID) { //filtro para produto view
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
         ResultSet rs = null;
@@ -296,8 +302,8 @@ public class ProdutoDAO {
 
             while (rs.next()) {
                 Produto c = new Produto();
-                c.setcodProduto(rs.getInt("id"));
-                c.setDescricaoProduto(rs.getString("Produto"));
+                c.setcodProduto(rs.getInt("codProduto"));
+                c.setnomeProduto(rs.getString("Produto"));
                 c.setMarca(rs.getString("Marca"));
                 c.setCategoria(rs.getString("categoria"));
                 c.setQtdeEstoque(rs.getInt("qtde Estoque"));
@@ -336,7 +342,7 @@ public class ProdutoDAO {
      * @param pNome String
      * @return ArrayList da classe Produtos
      */
-    public static ArrayList<Produto> filtroNome(String pNome) { //filtro por nome produto view
+    public static ArrayList<Produto> filtroProduto(String pNome) { //filtro por nome produto view
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
         ResultSet rs = null;
@@ -354,8 +360,8 @@ Class.forName("com.mysql.cj.jdbc.Driver");
 
             while (rs.next()) {
                 Produto c = new Produto();
-                c.setcodProduto(rs.getInt("id"));
-                c.setDescricaoProduto(rs.getString("Produto"));
+                c.setcodProduto(rs.getInt("codProduto"));
+                c.setnomeProduto(rs.getString("Produto"));
                 c.setMarca(rs.getString("Marca"));
                 c.setCategoria(rs.getString("categoria"));
                 c.setQtdeEstoque(rs.getInt("qtde Estoque"));
@@ -392,7 +398,7 @@ Class.forName("com.mysql.cj.jdbc.Driver");
      * @param nome String
      * @return obj da classe Produto
      */
-    public static Produto fNome(String nome) { //método usado para vendas view
+    public static Produto fnomeProduto(String nome) { //método usado para vendas view
         ResultSet rs = null;
         Connection conexao = null;
         PreparedStatement instrucaoSQL = null;
@@ -409,8 +415,8 @@ Class.forName("com.mysql.cj.jdbc.Driver");
             rs = instrucaoSQL.executeQuery(); //executar a query
 
             if (rs.next()) {
-                produto.setcodProduto(rs.getInt("id"));
-                produto.setDescricaoProduto(rs.getString("nomeProduto"));
+                produto.setcodProduto(rs.getInt("codProduto"));
+                produto.setnomeProduto(rs.getString("nomeProduto"));
                 produto.setMarca(rs.getString("descricao"));
                 produto.setCategoria(rs.getString("fabricante"));
                 produto.setQtdeEstoque(rs.getInt("quantProduto"));
@@ -438,8 +444,5 @@ Class.forName("com.mysql.cj.jdbc.Driver");
 
     }
 
-    public static boolean adicionar(Produto objAdicionar) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+  
 }

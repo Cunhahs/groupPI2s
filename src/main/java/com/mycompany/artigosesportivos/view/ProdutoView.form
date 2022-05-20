@@ -106,7 +106,7 @@
                           <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="lblMarca" max="32767" attributes="0"/>
-                              <Component id="lblDescricaoProduto" alignment="1" max="32767" attributes="0"/>
+                              <Component id="lblnomeProduto" alignment="1" max="32767" attributes="0"/>
                               <Component id="lblCodProduto" alignment="0" max="32767" attributes="0"/>
                               <Component id="lblCategoria" alignment="0" max="32767" attributes="0"/>
                               <Component id="lblQtdeEstoque" alignment="0" max="32767" attributes="0"/>
@@ -168,7 +168,7 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtProduto" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblDescricaoProduto" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblnomeProduto" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txtMarca" min="-2" max="-2" attributes="0"/>
@@ -228,7 +228,7 @@
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCodProdutoKeyTyped"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblDescricaoProduto">
+        <Component class="javax.swing.JLabel" name="lblnomeProduto">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>

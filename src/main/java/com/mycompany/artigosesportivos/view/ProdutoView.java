@@ -14,8 +14,10 @@ import com.mycompany.artigosesportivos.model.Produto;
 import com.mycompany.artigosesportivos.controller.ProdutoController;
 
 /**
- *
- * @author User
+ * Classe responsável pela interface de cadastro, manutenção e consulta de
+ * produtos 
+ * @author Viviane Cipollari
+ * version 1.0
  */
 public class ProdutoView extends javax.swing.JFrame {
 
@@ -42,7 +44,7 @@ public class ProdutoView extends javax.swing.JFrame {
     public ProdutoView(Produto p) {
         initComponents();
         this.objProduto = p;
-        this.txtProduto.setText(p.getDescricaoProduto());
+        this.txtProduto.setText(p.getnomeProduto());
         this.txtMarca.setText(p.getMarca());
         this.cboCategoria.setSelectedItem(p);
         this.txtQtdeEstoque.setText(String.valueOf(p.getQtdeEstoque()));
@@ -60,7 +62,7 @@ public class ProdutoView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         lblCodProduto = new javax.swing.JLabel();
         txtCodProduto = new javax.swing.JTextField();
-        lblDescricaoProduto = new javax.swing.JLabel();
+        lblnomeProduto = new javax.swing.JLabel();
         txtProduto = new javax.swing.JTextField();
         lblMarca = new javax.swing.JLabel();
         txtMarca = new javax.swing.JTextField();
@@ -116,9 +118,9 @@ public class ProdutoView extends javax.swing.JFrame {
             }
         });
 
-        lblDescricaoProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblDescricaoProduto.setText("Produto");
-        lblDescricaoProduto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblnomeProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblnomeProduto.setText("Produto");
+        lblnomeProduto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         txtProduto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtProduto.addActionListener(new java.awt.event.ActionListener() {
@@ -300,7 +302,7 @@ public class ProdutoView extends javax.swing.JFrame {
                         .addGap(119, 119, 119)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblMarca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblDescricaoProduto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblnomeProduto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblCodProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblCategoria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblQtdeEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -350,7 +352,7 @@ public class ProdutoView extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDescricaoProduto))
+                            .addComponent(lblnomeProduto))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(44, 44, 44)
@@ -667,7 +669,7 @@ public class ProdutoView extends javax.swing.JFrame {
         
             int codProduto = Integer.parseInt(txtCodProduto.getText());
 
-            ArrayList<String[]> filtro = ProdutoController.filtroProduto(codProduto);
+            ArrayList<String[]> filtro = ProdutoController.filtroCodProduto(codProduto);
 
             DefaultTableModel modelo = (DefaultTableModel) tblProduto.getModel();
             modelo.setRowCount(0);
@@ -765,10 +767,10 @@ public class ProdutoView extends javax.swing.JFrame {
     private javax.swing.JButton jtnProduto;
     private javax.swing.JLabel lblCategoria;
     private javax.swing.JLabel lblCodProduto;
-    private javax.swing.JLabel lblDescricaoProduto;
     private javax.swing.JLabel lblMarca;
     private javax.swing.JLabel lblQtdeEstoque;
     private javax.swing.JLabel lblValorUnitario;
+    private javax.swing.JLabel lblnomeProduto;
     private javax.swing.JTable tblProduto;
     private javax.swing.JTextField txtCodProduto;
     private javax.swing.JTextField txtMarca;

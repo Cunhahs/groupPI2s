@@ -23,8 +23,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Classe responsável pela interface de cadastro, manutenção e consulta de
+ * clientes
  * @author Viviane Cipollari
+ * @version 1.0
  */
 public class ClienteView extends javax.swing.JFrame {
 
@@ -566,48 +568,6 @@ public class ClienteView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAlterarActionPerformed
 
-    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-
-        ArrayList<String[]> filtro = null;
-        try {
-            filtro = ClienteController.filtroNome(txtNome.getText());
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        DefaultTableModel modelo = (DefaultTableModel) tblCliente.getModel();
-        modelo.setRowCount(0);
-
-        for (String[] item : filtro) {
-            modelo.addRow(item);
-        }
-
-        tblCliente.getColumnModel().getColumn(0).setPreferredWidth(10); //id
-         tblCliente.getColumnModel().getColumn(1).setPreferredWidth(50); //nome
-        tblCliente.getColumnModel().getColumn(2).setPreferredWidth(50); //CPF
-        tblCliente.getColumnModel().getColumn(3).setPreferredWidth(50); //endereço
-        tblCliente.getColumnModel().getColumn(4).setPreferredWidth(50); //numero
-        tblCliente.getColumnModel().getColumn(5).setPreferredWidth(50); //bairro
-        tblCliente.getColumnModel().getColumn(6).setPreferredWidth(50); //cidade
-        tblCliente.getColumnModel().getColumn(7).setPreferredWidth(10); //estado
-        tblCliente.getColumnModel().getColumn(8).setPreferredWidth(30); //Sexo
-        tblCliente.getColumnModel().getColumn(9).setPreferredWidth(50); //E. Civil
-        tblCliente.getColumnModel().getColumn(10).setPreferredWidth(50); //Telefone
-        tblCliente.getColumnModel().getColumn(11).setPreferredWidth(50); //data nascimento
-        tblCliente.getColumnModel().getColumn(12).setPreferredWidth(50); //e-mail     
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    }//GEN-LAST:event_btnConsultarActionPerformed
-
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         if (txtNome.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "O campo nome é obrigatório!");
@@ -949,6 +909,38 @@ public class ClienteView extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnConsultarNomeActionPerformed
+
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+
+        ArrayList<String[]> filtro = null;
+        try {
+            filtro = ClienteController.filtroNome(txtNome.getText());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        DefaultTableModel modelo = (DefaultTableModel) tblCliente.getModel();
+        modelo.setRowCount(0);
+
+        for (String[] item : filtro) {
+            modelo.addRow(item);
+        }
+
+        tblCliente.getColumnModel().getColumn(0).setPreferredWidth(10); //id
+        tblCliente.getColumnModel().getColumn(1).setPreferredWidth(50); //nome
+        tblCliente.getColumnModel().getColumn(2).setPreferredWidth(50); //CPF
+        tblCliente.getColumnModel().getColumn(3).setPreferredWidth(50); //endereço
+        tblCliente.getColumnModel().getColumn(4).setPreferredWidth(50); //numero
+        tblCliente.getColumnModel().getColumn(5).setPreferredWidth(50); //bairro
+        tblCliente.getColumnModel().getColumn(6).setPreferredWidth(50); //cidade
+        tblCliente.getColumnModel().getColumn(7).setPreferredWidth(10); //estado
+        tblCliente.getColumnModel().getColumn(8).setPreferredWidth(30); //Sexo
+        tblCliente.getColumnModel().getColumn(9).setPreferredWidth(50); //E. Civil
+        tblCliente.getColumnModel().getColumn(10).setPreferredWidth(50); //Telefone
+        tblCliente.getColumnModel().getColumn(11).setPreferredWidth(50); //data nascimento
+        tblCliente.getColumnModel().getColumn(12).setPreferredWidth(50); //e-mail
+
+    }//GEN-LAST:event_btnConsultarActionPerformed
 public void listarClientes() throws ClassNotFoundException {
         //lista toda a base de dados daquela tabela
         ArrayList<String[]> listaCliente = ClienteController.listarC();

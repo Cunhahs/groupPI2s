@@ -1,18 +1,18 @@
-D:\projetos 2 semestre\ProjetoPI\groupPI2s\src\main\java\com\mycompany\artigosesportivos\view\ClienteView.java
-D:\projetos 2 semestre\ProjetoPI\groupPI2s\src\main\java\com\mycompany\artigosesportivos\view\telaLogin.java
-D:\projetos 2 semestre\ProjetoPI\groupPI2s\src\main\java\com\mycompany\artigosesportivos\controller\RelatorioController.java
-D:\projetos 2 semestre\ProjetoPI\groupPI2s\src\main\java\com\mycompany\artigosesportivos\model\Cliente.java
-D:\projetos 2 semestre\ProjetoPI\groupPI2s\src\main\java\com\mycompany\artigosesportivos\controller\ClienteController.java
-D:\projetos 2 semestre\ProjetoPI\groupPI2s\src\main\java\com\mycompany\artigosesportivos\model\Relatorio.java
-D:\projetos 2 semestre\ProjetoPI\groupPI2s\src\main\java\com\mycompany\artigosesportivos\view\Menu.java
-D:\projetos 2 semestre\ProjetoPI\groupPI2s\src\main\java\com\mycompany\artigosesportivos\view\RelatorioAnalitico.java
-D:\projetos 2 semestre\ProjetoPI\groupPI2s\src\main\java\com\mycompany\artigosesportivos\view\ProdutoView.java
-D:\projetos 2 semestre\ProjetoPI\groupPI2s\src\main\java\com\mycompany\artigosesportivos\view\RelatorioSintetico.java
-D:\projetos 2 semestre\ProjetoPI\groupPI2s\src\main\java\com\mycompany\artigosesportivos\view\Estoque.java
-D:\projetos 2 semestre\ProjetoPI\groupPI2s\src\main\java\com\mycompany\artigosesportivos\DAO\ClienteDAO.java
-D:\projetos 2 semestre\ProjetoPI\groupPI2s\src\main\java\com\mycompany\artigosesportivos\model\Produto.java
-D:\projetos 2 semestre\ProjetoPI\groupPI2s\src\main\java\com\mycompany\artigosesportivos\controller\ProdutoController.java
-D:\projetos 2 semestre\ProjetoPI\groupPI2s\src\main\java\com\mycompany\artigosesportivos\DAO\ProdutoDAO.java
-D:\projetos 2 semestre\ProjetoPI\groupPI2s\src\main\java\com\mycompany\artigosesportivos\view\PontodeVenda.java
-D:\projetos 2 semestre\ProjetoPI\groupPI2s\src\main\java\com\mycompany\artigosesportivos\DAO\RelatorioDAO.java
-D:\projetos 2 semestre\ProjetoPI\groupPI2s\src\main\java\com\mycompany\artigosesportivos\view\Sobre.java
+C:\Users\User\Documents\NetBeansProjects\groupPI2s\src\main\java\com\mycompany\artigosesportivos\controller\ClienteController.java
+C:\Users\User\Documents\NetBeansProjects\groupPI2s\src\main\java\com\mycompany\artigosesportivos\DAO\ProdutoDAO.java
+C:\Users\User\Documents\NetBeansProjects\groupPI2s\src\main\java\com\mycompany\artigosesportivos\DAO\RelatorioDAO.java
+C:\Users\User\Documents\NetBeansProjects\groupPI2s\src\main\java\com\mycompany\artigosesportivos\view\telaLogin.java
+C:\Users\User\Documents\NetBeansProjects\groupPI2s\src\main\java\com\mycompany\artigosesportivos\view\ClienteView.java
+C:\Users\User\Documents\NetBeansProjects\groupPI2s\src\main\java\com\mycompany\artigosesportivos\view\Estoque.java
+C:\Users\User\Documents\NetBeansProjects\groupPI2s\src\main\java\com\mycompany\artigosesportivos\DAO\ClienteDAO.java
+C:\Users\User\Documents\NetBeansProjects\groupPI2s\src\main\java\com\mycompany\artigosesportivos\model\Produto.java
+C:\Users\User\Documents\NetBeansProjects\groupPI2s\src\main\java\com\mycompany\artigosesportivos\view\Sobre.java
+C:\Users\User\Documents\NetBeansProjects\groupPI2s\src\main\java\com\mycompany\artigosesportivos\controller\ProdutoController.java
+C:\Users\User\Documents\NetBeansProjects\groupPI2s\src\main\java\com\mycompany\artigosesportivos\controller\RelatorioController.java
+C:\Users\User\Documents\NetBeansProjects\groupPI2s\src\main\java\com\mycompany\artigosesportivos\view\ProdutoView.java
+C:\Users\User\Documents\NetBeansProjects\groupPI2s\src\main\java\com\mycompany\artigosesportivos\view\RelatorioAnalitico.java
+C:\Users\User\Documents\NetBeansProjects\groupPI2s\src\main\java\com\mycompany\artigosesportivos\model\Relatorio.java
+C:\Users\User\Documents\NetBeansProjects\groupPI2s\src\main\java\com\mycompany\artigosesportivos\view\PontodeVenda.java
+C:\Users\User\Documents\NetBeansProjects\groupPI2s\src\main\java\com\mycompany\artigosesportivos\view\RelatorioSintetico.java
+C:\Users\User\Documents\NetBeansProjects\groupPI2s\src\main\java\com\mycompany\artigosesportivos\model\Cliente.java
+C:\Users\User\Documents\NetBeansProjects\groupPI2s\src\main\java\com\mycompany\artigosesportivos\view\Menu.java

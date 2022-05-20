@@ -21,7 +21,7 @@ public class ProdutoController {
         Produto objAdicionar = new Produto();
 
         objAdicionar.setcodProduto(codProduto);
-        objAdicionar.setDescricaoProduto(DescricaoProduto);
+        objAdicionar.setnomeProduto(DescricaoProduto);
         objAdicionar.setMarca(Marca);
         objAdicionar.setCategoria(Categoria);
         objAdicionar.setQtdeEstoque(QtdeEstoque);
@@ -37,7 +37,7 @@ public class ProdutoController {
         Produto objAlterar = new Produto();
 
         objAlterar.setcodProduto(codProduto);
-        objAlterar.setDescricaoProduto(DescricaoProduto);
+        objAlterar.setnomeProduto(DescricaoProduto);
         objAlterar.setMarca(Marca);
         objAlterar.setCategoria(Categoria);
         objAlterar.setQtdeEstoque(QtdeEstoque);
@@ -55,7 +55,7 @@ public class ProdutoController {
         ArrayList<String[]> retorno = new ArrayList<>();
 
         for (Produto item : listar) {
-            retorno.add(new String[]{String.valueOf(item.getcodProduto()), item.getDescricaoProduto(), item.getMarca(),
+            retorno.add(new String[]{String.valueOf(item.getcodProduto()), item.getnomeProduto(), item.getMarca(),
                 item.getCategoria(), String.valueOf(item.getQtdeEstoque()), String.valueOf(item.getValorUnitario())});
         }
 
@@ -63,11 +63,11 @@ public class ProdutoController {
     }
 
     public static ArrayList<String[]> filtroCodProduto(int codProduto) {
-        ArrayList<Produto> filtro = ProdutoDAO.filtroPorId(codProduto);
+        ArrayList<Produto> filtro = ProdutoDAO.filtroPorCodProduto(codProduto);
         ArrayList<String[]> listaFiltro = new ArrayList<>();
 
         for (Produto item : filtro) {
-            listaFiltro.add(new String[]{String.valueOf(item.getcodProduto()), item.getDescricaoProduto(), item.getMarca(),
+            listaFiltro.add(new String[]{String.valueOf(item.getcodProduto()), item.getnomeProduto(), item.getMarca(),
                 item.getCategoria(), String.valueOf(item.getQtdeEstoque()), String.valueOf(item.getValorUnitario())});
 
         }
@@ -77,18 +77,16 @@ public class ProdutoController {
     }
 
     public static ArrayList<String[]> filtroProduto(String produto) {
-        ArrayList<Produto> filtro = ProdutoDAO.filtroNome(produto);
+        ArrayList<Produto> filtro = ProdutoDAO.filtroProduto(produto);
         ArrayList<String[]> listaFiltro = new ArrayList<>();
 
         for (Produto item : filtro) {
-            listaFiltro.add(new String[]{String.valueOf(item.getcodProduto()), item.getDescricaoProduto(), item.getMarca(),
+            listaFiltro.add(new String[]{String.valueOf(item.getcodProduto()), item.getnomeProduto(), item.getMarca(),
                 item.getCategoria(), String.valueOf(item.getQtdeEstoque()), String.valueOf(item.getValorUnitario())});
         }
         
         return listaFiltro;
     }
 
-    public static ArrayList<String[]> filtroProduto(int codProduto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }

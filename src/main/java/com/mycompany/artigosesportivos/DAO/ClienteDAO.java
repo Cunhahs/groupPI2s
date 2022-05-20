@@ -20,9 +20,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
+ * Classe responsável por promover a conexão com o banco de dados. É possível
+ * fazer inclusão, alteração, exclusão e manutenção de clientes.
  * 
- *
- * @author VivianeCipollari
+ *  @author VivianeCipollari
+ * @version 1.0
+ * @ee controller.ClienteController
+ * @see model.Cliente
  * 
  */
 public class ClienteDAO {
@@ -30,8 +34,8 @@ public class ClienteDAO {
 
 
     /**
-     * Método salvar para gravação de informações no banco de dados
-     *
+     * Método adicionar para gravação de informações no banco de dados
+     * @author VivianeCipollari
      * @param p obj Cliente
      * @return true - para sucesso | false - para falha
      *
